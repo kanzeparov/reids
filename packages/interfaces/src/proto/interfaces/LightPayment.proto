@@ -1,0 +1,13 @@
+package webproto;
+syntax = "proto3";
+
+message LightPayment {
+  required string token = 1;
+  required string sender = 2;
+  required string receiver = 3;
+  required string power = 4;
+  required string price = 5;
+  required uint32 datetime = 6; //Must be uint64 but moment not support creating from Long type
+  required string total = 7;
+  required sint32 state = 8;
+}

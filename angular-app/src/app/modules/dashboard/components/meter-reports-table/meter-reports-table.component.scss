@@ -1,0 +1,80 @@
+@import 'base/variables';
+@import 'base/placeholders/text';
+@import 'base/placeholders/bg';
+@import 'base/media-queries';
+
+table thead tr th.text-left,
+table tbody tr td.text-left {
+  text-align: left;
+}
+
+table thead tr th.text-right,
+table tbody tr td.text-right {
+  text-align: right;
+}
+
+thead tr th,
+tbody tr td {
+  @extend %text-monospace;
+  padding: $offset-s $offset-m;
+
+  &:not(.text-right) {
+    text-align: left;
+  }
+}
+
+thead tr th {
+  &.title {
+    @extend %text-bold;
+    vertical-align: top;
+  }
+
+  &.subtitle {
+    @extend %text-thin;
+  }
+}
+
+tbody tr {
+  &:hover {
+    background-color: rgba($color-black, .04);
+  }
+
+  &.nested td:first-child {
+    padding-left: $offset-l + $offset-s;
+  }
+
+  td {
+    &.quiet {
+      color: rgba($color-black, .4);
+    }
+  }
+}
+
+.meters-table__account {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.meters-table__gravatar {
+  background-color: $color-white;
+  width: 16px;
+  height: 16px;
+  padding: 5px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.meters-table__full-uuid {
+  display: none;
+}
+
+@include media-laptop-and-higher {
+  .meters-table__full-uuid {
+    display: initial;
+  }
+
+  .meters-table__short-uuid {
+    display: none;
+  }
+}

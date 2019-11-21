@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./app",
+    "paths": {
+      "@app/*": ["./*"],
+      "@core/*": ["core/*"],
+      "@modules/*": ["modules/*"],
+      "@store/*": ["store/*"],
+      "@utils/*": ["utils/*"],
+      "@env": ["../environments/environment.ts"]
+    },
+    "outDir": "../out-tsc/app",
+    "types": []
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

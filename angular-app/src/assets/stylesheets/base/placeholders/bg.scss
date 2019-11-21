@@ -1,0 +1,14 @@
+@import "base/variables";
+
+%background-down {
+  background-color: rgba($color-blue, $opacity-l);
+}
+%background-caution {
+  background-color: rgba($color-caution, $opacity-l);
+}
+%background-overlay {
+  background-color: rgba($color-overlay, $opacity-s);
+}
+%background-total {
+  background: linear-gradient(180deg, rgba(0, 0, 0, $opacity-xl) 0%, rgba(0, 0, 0, $opacity-xxl) 100%), $color-white;
+}

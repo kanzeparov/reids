@@ -1,0 +1,15 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/RoomType.proto";
+import "../interfaces/LightMeterValue.proto";
+
+
+message MeasurementsRoomRequest {
+  required RoomType type = 1 [default = RoomType.Measurements];
+}
+
+message MeasurementsRoomResponse {
+  required RoomType type = 1 [default = RoomType.Measurements];
+  repeated LightMeterValue value = 2;
+}

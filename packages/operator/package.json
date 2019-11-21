@@ -1,0 +1,26 @@
+{
+  "name": "@onder/operator",
+  "version": "0.0.1",
+  "description": "Metering Kit for Onder Platform, Hardware Meter",
+  "repository": "https://github.com/onderPlatform/onder",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build": "exit 0",
+    "lint": "tslint --format stylish --project . --exclude './node_modules/**/*.ts'"
+  },
+  "dependencies": {
+    "@machinomy/logger": "^0.2.3",
+    "@onder/common": "^0.0.1",
+    "@onder/interfaces": "^0.0.1",
+    "bignumber.js": "^4.1.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.38.0",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/sequelize": "^4.27.24",
+    "@types/socket.io": "^1.4.38",
+    "ts-node": "^7.0.1"
+  }
+}

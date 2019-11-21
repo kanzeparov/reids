@@ -1,0 +1,14 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/RoomType.proto";
+
+message JoinRoomEventRequest {
+  required string roomID = 1;
+  required RoomType type = 2;
+  required bytes roomEventRequest = 3;
+}
+
+message JoinRoomEventResponse {
+  
+}

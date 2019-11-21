@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "BalanceRoom.proto";
+import "ErrorRoom.proto";
+import "MeasurmentsRoom.proto";
+import "PartnerRoom.proto";
+import "PartnersRoom.proto";
+import "PaymentsRoom.proto";
+import "TransactionsRoom.proto";

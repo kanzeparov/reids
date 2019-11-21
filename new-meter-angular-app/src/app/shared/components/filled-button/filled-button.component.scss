@@ -1,0 +1,29 @@
+@import "base/variables";
+@import "base/placeholders/text";
+
+.filled-button {
+  width: 100%;
+  border: none;
+  border-radius: $border-radius-m;
+  outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &[disabled] {
+    background-color: rgba($color-black, $opacity-xl) !important;
+  }
+}
+
+.filled-button__content {
+  @extend %text-regular;
+}
+
+.theme--interactive {
+  background-color: $color-interactive;
+  color: $color-white;
+}
+
+.theme--accent {
+  background-color: $color-accent;
+  color: $color-black;
+}

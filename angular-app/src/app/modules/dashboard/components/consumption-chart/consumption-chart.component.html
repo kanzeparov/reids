@@ -1,0 +1,11 @@
+<div class="dashboard-consumption__chart-wrap">
+  <div class="dashboard-consumption__chart-title">
+    Consumption <strong>{{ minConsumption | toFixed:2:'0' }} kW</strong> min,&nbsp;
+    <strong>{{ maxConsumption | toFixed:2:'0' }}</strong> max, <strong>{{ averageConsumption | toFixed:2:'0' }}</strong> in average
+  </div>
+  <app-chart
+    [options]="chartConfig.options"
+    [seriesOptions]="chartConfig.seriesOptions"
+    [actions]="chartActions$"
+  ></app-chart>
+</div>

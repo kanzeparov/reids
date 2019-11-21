@@ -1,0 +1,15 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "dsm",
+  "password": "dsm",
+  "database": "dsm",
+  "logging": false,
+  "entities": [
+    "dist/entity/**/*.js"
+  ],
+  "migrations": [
+    "dist/migration/**/*.js"
+  ]
+}

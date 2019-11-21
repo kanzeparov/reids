@@ -1,0 +1,81 @@
+/* SCSS Variables */
+
+// opacity
+
+$opacity-none: 1.0;
+$opacity-xs:   0.8;
+$opacity-s:    0.6;
+$opacity-m:    0.4;
+$opacity-l:    0.2;
+$opacity-xl:   0.1;
+$opacity-xxl:  0.04;
+$opacity-underlay:       $opacity-xs;
+$opacity-text-secondary: $opacity-m;
+$opacity-disabled: $opacity-l;
+$opacity-empty: $opacity-m;
+
+// margins
+
+$offset-xs:  2px;
+$offset-s:   4px;
+$offset-m:   8px;
+$offset-l:  16px;
+$offset-xl: 32px;
+$offset-xxl: 40px;
+$offset-container: $offset-s;
+$offset-component: $offset-m;
+$offset-component-inside: $offset-s;
+$offset-page: $offset-xl;
+
+// border-radius
+
+$border-radius-xs: 1px;
+$border-radius-m: 2px;
+$border-radius-l: 4px;
+
+// animation-duration
+
+$animation-duration-s: 100;
+$animation-duration-m: 200;
+$animation-duration-l: 400;
+
+// color
+
+$color-white:      #FFF;
+$color-gray-light: #DFDFDF;
+$color-gray:       #ADADAD;
+$color-gray-dark:  #7C7C7C;
+$color-black:      #000;
+$color-red:        #FC121B;
+$color-blue:       #1AA5B8;
+$color-yellow:     #F4C52E;
+
+$color-accent:      $color-yellow;
+$color-interactive: $color-blue;
+$color-caution:     $color-red;
+$color-overlay:     $color-black;
+
+// font-family
+
+$font-family-default: Arial, sans-serif;
+$font-family-monospace: Ubuntu Mono, monospace;
+$font-family-icons: Material Icons;
+
+// font-icons
+
+$font-icons-s-line-height: 16px;
+$font-icons-s-size: 16px;
+$font-icons-m-line-height: 24px;
+$font-icons-m-size: 20px;
+$font-icons-l-line-height: 32px;
+$font-icons-l-size: 32px;
+
+// shadow
+
+$shadow-inner-m: inset 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+$shadow-outer-m: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+$shadow-outer-up-m: 0px -2px 8px 0px rgba(0, 0, 0, 0.2);
+
+// common hardcoded values
+
+$navbar-height: 46px + 2px; // navbar height + navbar bottom line height

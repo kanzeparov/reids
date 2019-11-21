@@ -1,0 +1,252 @@
+@import 'base/variables';
+@import 'base/placeholders/text';
+@import 'base/placeholders/bg';
+
+$gray-color: rgba($color-black, 0.4);
+
+$content-width: 300px;
+.channels {
+  display: grid;
+  grid-template-areas: 'channels-wrap channels-content';
+  grid-template-columns: 1fr $content-width;
+
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.channels__wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% + #{$content-width});
+  height: 100%;
+  z-index: 1;
+  background-color: rgba($color-black, $opacity-l);
+}
+
+$icon-size: 32px;
+.channels__close-btn {
+  position: absolute;
+  top: $offset-l;
+  right: $offset-l;
+  width: $icon-size;
+  height: $icon-size;
+  cursor: pointer;
+  user-select: none;
+
+  i {
+    font-size: $icon-size;
+  }
+
+  z-index: 15;
+}
+
+.channels__left-side-blank {
+  grid-area: channels-wrap;
+}
+
+.channels__content {
+  grid-area: channels-content;
+
+  padding: ($offset-xxl + 2px) $offset-l;
+
+  background: $color-white;
+  box-shadow: $shadow-outer-m;
+  border-radius: $border-radius-xs;
+
+  position: relative;
+  z-index: 10;
+}
+
+.channels__notification {
+  @extend %text-monospace;
+
+  position: absolute;
+  bottom: $offset-l;
+  left: $offset-l;
+  right: $offset-l;
+
+  background: linear-gradient(0deg, rgba(26, 165, 184, 0.2), rgba(26, 165, 184, 0.2)), #FFFFFF;
+  border-radius: $border-radius-l;
+}
+
+/* Fetch wrap */
+
+.channels__fetch-wrap {
+  margin-top: $offset-l;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  background: $color-white;
+}
+
+.channels__fetch-error {
+  @extend %text-monospace;
+}
+
+/* Account heading */
+
+.channels__meter-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: $offset-xs;
+}
+
+.channels__meter-gravatar {
+  background-color: $color-white;
+  width: 22px;
+  height: 22px;
+  padding: 5px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.channels__meter-name {
+  @extend %text-bold;
+  @extend %text-regular-extra-large;
+}
+
+/* Account heading */
+
+.channels__meter-id {
+  @extend %text-monospace;
+  word-break: break-all;
+  margin-bottom: $offset-l;
+}
+
+/* Onchain balance */
+
+.channels__onchain-balance {
+  display: flex;
+
+  div {
+    @extend %text-monospace;
+  }
+}
+
+.channels__onchain-balance-title {
+  @extend %text-monospace;
+  @extend %text-bold;
+}
+
+/* Table general */
+
+.channels-table {
+  width: 100%;
+  margin-top: $offset-l;
+}
+
+.channels-table thead tr th,
+.channels-table tbody tr td {
+  @extend %text-monospace;
+
+  text-align: left;
+}
+
+.channels-table thead tr th {
+  vertical-align: top;
+}
+
+.channels-table tbody tr td {
+  vertical-align: middle;
+  padding: 0;
+}
+
+/* Table rows */
+
+.channels-table__offchain-balance {
+  @extend %background-total;
+}
+
+.channels-table__row {
+  &:hover:not(.quiet) {
+    background-color: rgba($color-black, 0.04);
+
+    .channels-table__action {
+      opacity: 1;
+    }
+  }
+
+  &.quiet {
+    color: $gray-color;
+
+    * {
+      color: $gray-color !important;
+    }
+  }
+}
+
+.channels-table__row.show-icon {
+  color: $gray-color;
+
+  * {
+    color: $gray-color !important;
+  }
+}
+
+.channels-table__gravatar-cell {
+  width: 24px;
+}
+
+.channels-table__gravatar {
+  display: inline-block;
+  background-color: $color-white;
+  width: 12px;
+  height: 12px;
+  margin: 6px 0px 6px 6px;
+  border-radius: 50%;
+}
+
+.channels-table__name {
+  display: inline;
+}
+
+.channels-table__balance {
+  color: $color-interactive;
+}
+
+.channels-table__action {
+  opacity: 0;
+  width: 24px;
+  cursor: pointer;
+
+  &.show-icon {
+    opacity: 1;
+  }
+
+  .channels-table__action-icon-wrap {
+    display: flex;
+    align-items: center;
+
+    i.material-icons {
+      color: $color-interactive;
+      font-size: 20px;
+    }
+  }
+}
+
+.channels-table__status-message-cell {
+}
+
+.channels-table__status-message {
+  color: $gray-color;
+
+  &.error {
+    color: $color-red;
+  }
+}
+
+/* Bottom */
+
+.channels__tip {
+  @extend %text-monospace;
+
+  margin-top: $offset-l;
+  color: $gray-color;
+}

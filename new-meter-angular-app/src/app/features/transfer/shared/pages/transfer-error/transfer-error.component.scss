@@ -1,0 +1,32 @@
+@import "base/variables";
+@import "base/placeholders/text";
+
+.transfer-error {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  height: 100%;
+}
+
+.transfer-error__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $offset-xxl;
+}
+
+.transfer-error__icon {
+  i {
+    line-height: 64px;
+    font-size: 64px;
+  }
+}
+
+.transfer-error__message {
+  @extend %text-monospace;
+}
+
+.transfer-error__message {
+  margin-top: $offset-l;
+  margin-bottom: $offset-l;
+}

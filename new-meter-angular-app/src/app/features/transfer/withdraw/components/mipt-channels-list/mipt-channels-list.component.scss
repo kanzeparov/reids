@@ -1,0 +1,96 @@
+@import 'base/variables';
+@import 'base/placeholders/text';
+@import 'base/placeholders/bg';
+
+$gray-color: rgba($color-black, 0.4);
+
+:host {
+  overflow: hidden;
+}
+
+.channels {
+  height: 100%;
+  overflow: scroll;
+}
+
+.channels-table {
+  width: 100%;
+  margin-top: $offset-l;
+}
+
+.channels-table thead tr th,
+.channels-table tbody tr td {
+  @extend %text-monospace;
+
+  text-align: left;
+}
+
+.channels-table thead tr th {
+  vertical-align: top;
+}
+
+.channels-table tbody tr td {
+  vertical-align: middle;
+  padding: 0;
+}
+
+/* Table rows */
+
+.channels-table__row {
+  &.is-settled,
+  &.is-performing-action {
+    color: $gray-color;
+
+    * {
+      color: $gray-color !important;
+    }
+  }
+}
+
+.channels-table__gravatar-cell {
+  width: 24px;
+}
+
+.channels-table__gravatar {
+  display: inline-block;
+  background-color: $color-white;
+  width: 12px;
+  height: 12px;
+  margin: 6px 0px 6px 6px;
+  border-radius: 50%;
+}
+
+.channels-table__name {
+  display: inline;
+}
+
+.channels-table__balance {
+  color: $color-interactive;
+}
+
+.channels-table__action {
+  width: 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  .channels-table__action-icon-wrap {
+    display: flex;
+    align-items: center;
+
+    i.material-icons {
+      color: $color-interactive;
+      font-size: 20px;
+    }
+  }
+}
+
+.channels-table__status-message-cell {
+}
+
+.channels-table__status-message {
+  color: $gray-color;
+
+  &.error {
+    color: $color-red;
+  }
+}

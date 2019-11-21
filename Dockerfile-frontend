@@ -1,0 +1,10 @@
+FROM onder_webserver:latest
+
+RUN rm -rf \
+  ./packages/common \
+  ./packages/metering-kit-hardware \
+  ./packages/metering-kit-node \
+  ./packages/operator \
+  ./packages/utils-hdwalletcalculator
+
+WORKDIR /app/packages/frontend/

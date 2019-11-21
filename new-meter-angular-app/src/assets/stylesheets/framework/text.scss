@@ -1,0 +1,17 @@
+@import "base/placeholders/text";
+
+.text-mono {
+  @extend %text-monospace;
+}
+.text-regular {
+  @extend %text-regular;
+}
+.bold {
+  @extend %text-bold;
+}
+.thin {
+  @extend %text-thin;
+}
+.upcase {
+  @extend %text-upcase;
+}

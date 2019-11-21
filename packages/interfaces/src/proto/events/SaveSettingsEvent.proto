@@ -1,0 +1,19 @@
+package webproto;
+syntax = "proto3";
+
+message SaveSettingsEventRequest {
+    required string accout = 1;
+    required string name = 2;
+    required string email = 3;
+    required string phone = 4;
+    required string address = 5;
+    required string timezone = 6;
+    required string language = 7;
+    required bool send_statistics = 8;
+    required string upstream_id = 9;
+    required string sell_price = 10;
+    required bool borrow_energy = 11;
+}
+
+message SaveSettingsEventResponse {
+}

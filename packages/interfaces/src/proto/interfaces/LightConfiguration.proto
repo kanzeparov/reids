@@ -1,0 +1,13 @@
+package webproto;
+syntax = "proto3";
+
+import "LightMeterConfiguration.proto";
+
+message LightConfiguration {
+  required uint32 workTimeout = 1;
+  repeated LightMeterConfiguration meterConfiguration = 2;
+  required string upstreamAddress = 3;
+  required bool isSeller = 4;
+  required string price = 5;
+  required bool allowSendStatistic = 6;
+}

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "apiVersion": "v1",
+  "build": "1",
+  "language": "en",
+  "baseUrl": {
+    "prod": "/",
+    "dev": "http://localhost:8888/"
+  },
+  "debug": true
+}

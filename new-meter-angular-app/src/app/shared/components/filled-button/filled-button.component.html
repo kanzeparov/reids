@@ -1,0 +1,11 @@
+<button
+  matRipple
+  class="filled-button"
+  [attr.type]="typeSubmit ? 'submit' : 'button'"
+  [ngClass]="[themeClass, boldClass, upcaseClass]"
+  [disabled]="disabled"
+>
+  <offset-block class="filled-button__content" y-offset="large" y-offset="large" justify="center">
+    <ng-content></ng-content>
+  </offset-block>
+</button>

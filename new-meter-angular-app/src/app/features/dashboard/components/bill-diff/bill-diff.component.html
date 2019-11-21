@@ -1,0 +1,5 @@
+<div class="bill-diff">
+  <div class="bill-diff__value" [ngClass]="diffClass">
+    {{ isDiffPositive ? '+' : '' }}{{ diff | toCiPrefix }}
+  </div>
+</div>

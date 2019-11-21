@@ -1,0 +1,27 @@
+{
+  "debug": "*",
+  "quantum": "PT5S",
+  "defaultPrice": "1000000000",
+  "upstreamAccount": "0x44ac47379573F997098d02714D652abc28629c44",
+  "ethereumUrl": "https://rinkeby.eth.machinomy.com",
+  "isSeller": false,
+  "resolver": {
+    "kind": "Bonjour"
+  },
+  "databaseUrl": "sqlite://./buyer-virtual.sqlite3",
+  "webInterfacePort": 8888,
+  "webInterfaceHost": "localhost",
+  "wallets": [
+    {
+      "account": "0xCB32de2b9d1f1Efb4abDE7d24131eBeD6c649ad7",
+      "mnemonic": "into quote gas spatial course veteran fan sibling snow early rookie cinnamon banana happy way"
+    }    
+  ],
+  "meters": [
+    {
+      "kind": "http-server",
+      "account": "0xCB32de2b9d1f1Efb4abDE7d24131eBeD6c649ad7",
+      "port": 4001
+    }
+  ]
+}

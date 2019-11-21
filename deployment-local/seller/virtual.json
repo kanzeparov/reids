@@ -1,0 +1,27 @@
+{
+  "debug": "*",
+  "quantum": "PT5S",
+  "defaultPrice": "1000000000",
+  "upstreamAccount": "0x44ac47379573F997098d02714D652abc28629c33",
+  "ethereumUrl": "https://rinkeby.eth.machinomy.com",
+  "isSeller": true,
+  "resolver": {
+    "kind": "Bonjour"
+  },
+  "databaseUrl": "sqlite://./seller-virtual.sqlite3",
+  "webInterfacePort": 8887,
+  "webInterfaceHost": "localhost",
+  "wallets": [
+    {
+      "account": "0x44ac47379573F997098d02714D652abc28629c44",
+      "mnemonic": "tent behind wife jewel great dinosaur bubble scale rifle repeat material genuine"
+    }    
+  ],
+  "meters": [
+    {
+      "kind": "http-server",
+      "account": "0x44ac47379573F997098d02714D652abc28629c44",
+      "port": 3900
+    }
+  ]
+}

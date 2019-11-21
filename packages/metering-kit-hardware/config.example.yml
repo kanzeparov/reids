@@ -1,0 +1,10 @@
+meterConfigurations:
+  - key: aaa
+    faultValue: 0.001
+    emulatorDataPath:
+  - key: bbb
+    faultValue: 0.002
+  - key: ccc
+    port: /dev/ttyUSB0
+    faultValue: 0.003
+

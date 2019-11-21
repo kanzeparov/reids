@@ -1,0 +1,55 @@
+<div class="withdraw border-box p-l">
+  <ng-container
+    *ngIf="(isTransferPending$ | async) then transferInProgress else transferForm"
+  ></ng-container>
+
+  <ng-template #transferInProgress>
+    <transfer-in-progress></transfer-in-progress>
+  </ng-template>
+
+  <ng-template #transferForm>
+    <form class="withdraw__form" [formGroup]="withdrawForm" (ngSubmit)="onSubmit()">
+      <app-account-balance-radio
+        formControlName="account"
+        [accounts]="transferAccounts$ | async"
+      ></app-account-balance-radio>
+
+      <div class="withdraw__channels-info">
+        <withdraw-mipt-channels-info
+          *ngIf="currencyIsMipt"
+          [balance]="totalBalance$ | async"
+        ></withdraw-mipt-channels-info>
+      </div>
+
+      <div class="withdraw__amount-container">
+        <mat-form-field class="withdraw__amount-field">
+          <input
+            matInput
+            type="text"
+            placeholder="Amount"
+            formControlName="amount"
+          >
+          <span matSuffix class="withdraw__amount-currency">{{ currency }}</span>
+
+          <mat-error *ngIf="amountControl.hasError('required')">
+            Number should not be empty
+          </mat-error>
+
+          <mat-error *ngIf="amountControl.hasError('min') || amountControl.hasError('pattern')">
+            Incorrect number
+          </mat-error>
+
+          <mat-error *ngIf="amountControl.hasError('max') && !amountControl.hasError('pattern')">
+            Insufficient funds
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="withdraw__form-submit">
+        <filled-button theme="accent" typeSubmit [disabled]="!(canTransfer$ | async)">
+          Withdraw
+        </filled-button>
+      </div>
+    </form>
+  </ng-template>
+</div>

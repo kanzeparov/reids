@@ -1,0 +1,54 @@
+{
+  "host": "0.0.0.0",
+  "port": 8080,
+  "apiHost": "localhost",
+  "apiPort": 8090,
+  "plugin": "peak-balancing",
+  "pluginOptions": {
+    "type": "postgres",
+    "host": "104.210.58.172",
+    "database": "dsm",
+    "username": "onder",
+    "password": "onder",
+    "consumptionListenerPort": 8778,
+    "Wmax": 200,
+    "baseCost": "2000000000",
+    "minCost": "1600000000",
+    "maxCost": "3060000000",
+    "source": {
+      "http": "http://52.183.35.245:9000/api/reports/consumption"
+    },
+    "peakTime": [
+      {
+        "from": "18:00",
+        "to": "23:00"
+      },
+      {
+        "from": "07:00",
+        "to": "13:00"
+      }
+    ],
+    "semiPeakTime": [
+      {
+        "from": "13:00",
+        "to": "18:00"
+      }
+    ],
+    "nightTime": [
+      {
+        "from": "23:00",
+        "to": "24:00"
+      },
+      {
+        "from": "00:00",
+        "to": "07:00"
+      },
+      {
+        "from": "23:00",
+        "to": "00:00"
+      }
+    ],
+    "price": "2000000000"
+  },
+  "pluginDataCheckingRate": 4000
+}

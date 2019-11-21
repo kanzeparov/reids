@@ -1,0 +1,26 @@
+@import "base/variables";
+@import "base/placeholders/text";
+
+.app {
+  display: grid;
+  grid-template-rows: 48px 0 1fr;
+  height: 100%;
+
+  &.loading {
+    grid-template-rows: 48px 1fr 0;
+  }
+}
+
+.app__preload-container {
+  @extend %text-monospace;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.app__preload-error-text {
+  margin-bottom: $offset-m;
+}

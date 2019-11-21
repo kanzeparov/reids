@@ -1,0 +1,30 @@
+@import "~@assets/scss/base/placeholders/typography";
+
+.c-white {
+  color: $color-white;
+}
+.c-gray-light {
+  color: $color-gray-light;
+}
+.c-gray {
+  color: $color-gray;
+}
+.c-gray-dark {
+  color: $color-gray-dark;
+}
+.c-black {
+  color: $color-black;
+}
+.c-accent {
+  color: $color-accent;
+}
+.c-interactive {
+  color: $color-interactive;
+}
+.c-caution {
+  color: $color-caution;
+}
+
+.bg-gray-light {
+  background-color: $color-gray-light;
+}

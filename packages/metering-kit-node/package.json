@@ -1,0 +1,46 @@
+{
+  "name": "@onder/metering-kit-node",
+  "version": "0.0.1",
+  "description": "Metering Kit for Onder Platform, Hardware Meter",
+  "repository": "https://github.com/onderPlatform/onder",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build": "rm -rf ./dist/ && tsc --project tsconfig.json",
+    "lint": "tslint --format stylish --project . --exclude './node_modules/**/*.ts'"
+  },
+  "dependencies": {
+    "@machinomy/contracts": "^4.1.5",
+    "@machinomy/hdwallet-provider": "1.7.1",
+    "@machinomy/logger": "^0.2.3",
+    "@onder/common": "^0.0.1",
+    "@onder/interfaces": "^0.0.1",
+    "@types/json-rpc-ws": "^4.0.2",
+    "@types/node": "^12.6.2",
+    "@types/socket.io": "^1.4.38",
+    "await-semaphore": "^0.1.3",
+    "bignumber.js": "^4.1.0",
+    "express-validator": "^5.3.0",
+    "json-rpc-ws": "^7.0.0",
+    "koa": "^2.6.2",
+    "koa-body": "^4.1.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "lodash": "^4.17.11",
+    "machinomy": "^1.13.32",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^4.38.0",
+    "socket.io": "^2.1.1",
+    "typeorm": "^0.2.18",
+    "web3": "^0.20.x",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {
+    "@machinomy/types-web3": "^0.0.12",
+    "@types/koa": "^2.0.47",
+    "@types/koa-logger": "^3.1.1",
+    "@types/sequelize": "^4.27.24",
+    "@types/yargs": "^12.0.0"
+  }
+}

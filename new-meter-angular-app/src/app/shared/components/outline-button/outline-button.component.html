@@ -1,0 +1,10 @@
+<button
+  matRipple
+  class="outline-button"
+  [ngClass]="[themeClass, boldClass, upcaseClass]"
+  [disabled]="disabled"
+>
+  <offset-block class="outline-button__content" x-offset="large" y-offset="medium">
+    <ng-content></ng-content>
+  </offset-block>
+</button>

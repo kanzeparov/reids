@@ -1,0 +1,26 @@
+- kind: file
+  path: ./path/data.cvs
+  column: column1
+  account: file1
+- kind: zero
+- kind: zero
+- kind: random
+  account: random
+- kind: random
+  account: random
+- kind: energomera
+  port: /dev/ttyUSB0
+  account: energomera1
+- kind: onder-alpha
+  port: /dev/ttyAMA0
+  accounts:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10

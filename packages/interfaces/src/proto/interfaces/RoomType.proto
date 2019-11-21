@@ -1,0 +1,12 @@
+package webproto;
+syntax = "proto3";
+
+enum RoomType {
+  Partner = 1;
+  Payments = 2;
+  Partners = 3;
+  Balance = 4;
+  Measurements = 5;
+  Error = 6;
+  Transactions = 7;
+}

@@ -1,0 +1,15 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/RoomType.proto";
+
+message BalanceRoomRequest {
+  required RoomType type = 1 [default = RoomType.Balance];
+}
+
+message BalanceRoomResponse {
+  required RoomType type = 1 [default = RoomType.Balance];
+  required string balance_eth = 2;
+  required string balance_channel = 3;
+  required string owe = 4;
+}

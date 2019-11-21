@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  ng:
+    build: .
+    image: onder_meter_ng:latest
+    ports:
+      - 4201:4201
+    volumes:
+      - .:/app:cached
+    entrypoint: ./docker-entrypoint.sh
+    command: yarn start

@@ -1,0 +1,53 @@
+<div class="deposit border-box p-l">
+  <ng-container
+    *ngIf="(isTransferPending$ | async) then transferInProgress else transferForm"
+  ></ng-container>
+
+  <ng-template #transferInProgress>
+    <transfer-in-progress></transfer-in-progress>
+  </ng-template>
+
+  <ng-template #transferForm>
+    <form form [formGroup]="depositForm" (ngSubmit)="onSubmit()">
+
+      <app-account-balance-radio
+        formControlName="account"
+        [accounts]="transferAccounts$ | async"
+      ></app-account-balance-radio>
+
+      <div class="deposit__amount-container">
+        <mat-form-field class="deposit__amount-field">
+          <input
+            matInput
+            type="text"
+            placeholder="Amount"
+            formControlName="amount"
+          >
+          <span matSuffix class="deposit__amount-currency">{{ currency }}</span>
+
+          <mat-hint align="start">
+            Up to {{ getWeb3Balance$() | async }} {{ currency }} from {{ web3AccountAddress$ | async | shortUuid }}
+          </mat-hint>
+
+          <mat-error *ngIf="amountControl.hasError('required')">
+            Number should not be empty
+          </mat-error>
+
+          <mat-error *ngIf="amountControl.hasError('min') || amountControl.hasError('pattern')">
+            Incorrect number
+          </mat-error>
+
+          <mat-error *ngIf="amountControl.hasError('max') && !amountControl.hasError('pattern')">
+            Insufficient funds. {{ getWeb3Balance$() | async }} {{ currency }} available
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="deposit__form-submit">
+        <filled-button theme="accent" typeSubmit [disabled]="!(canTransfer$ | async)">
+          Deposit
+        </filled-button>
+      </div>
+    </form>
+  </ng-template>
+</div>

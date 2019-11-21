@@ -1,0 +1,13 @@
+{
+  "ip": "IP-address",
+  "mask": "Subnet mask",
+  "getway": "Default getway",
+  "dnsPrimary": "DNS server 1",
+  "dnsSecondary": "DNS server 2",
+  "ssid": "SSID",
+  "password": "Password",
+  "save": "Save",
+  "connect": "Connect",
+  "extraSettings": "Additional settings",
+  "securityMode": "Security mode"
+}

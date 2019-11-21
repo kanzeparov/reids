@@ -1,0 +1,12 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/WebError.proto";
+
+message DeleteErrorEventRequest {
+  required WebError error = 1;
+}
+
+message DeleteErrorEventResponse {
+  
+}

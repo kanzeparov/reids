@@ -1,0 +1,49 @@
+{
+  "cellName": "Alpha-buyer",
+  "debug": "*",
+  "quantum": "PT5S",
+  "defaultPrice": "1000000000",
+  "upstreamAccount": "0x0",
+  "ethereumUrl": "https://rinkeby.infura.io/v3/fedce6444d5648d68d219657b539bfd1",
+  "isSeller": true,
+  "resolver": {
+    "kind": "Bonjour"
+  },
+  "databaseUrl": "sqlite:///tmp/buyer-virtual.sqlite3",
+  "databaseConfig": {
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "onder",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "packages/metering-kit-node/dist/typeOrmDatabase/models/**/*.js"
+    ]
+  },
+  "webInterfacePort": 8888,
+  "webInterfaceHost": "localhost",
+  "wallets": [
+    {
+      "account": "0x5fc4558c67bf6886ee453aec35af7ea8021eab7a",
+      "mnemonic": "spot ocean alley across dizzy arch volume memory satoshi neither luggage company mimic robust sure"
+    }
+  ],
+  "meters": [
+    {
+      "kind": "mqtt",
+      "account": "0x5fc4558c67bf6886ee453aec35af7ea8021eab7a",
+      "ideaId": "Agent2",
+      "host": "mosquitto.onder.tech",
+      "port": 80,
+      "username": "jellyfish",
+	    "password": "1q2w3e4r"
+    }
+  ],
+  "dsmUrl": "ws://dsm1.onder.tech:8080",
+  "tokenContract": "0xD4a2AcE348c122EdCA6e0e11AD1c6e21EeE36C5C",
+  "tradeHost": "192.168.100.100",
+  "tradePort": 9002
+}

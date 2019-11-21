@@ -1,0 +1,8 @@
+package webproto;
+syntax = "proto3";
+
+message LightMeterValue {
+  required string value = 1;
+  required string delta = 2;
+  required uint32 datetime = 3; //Must be uint64 but moment not support creating from Long type
+}

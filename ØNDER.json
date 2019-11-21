@@ -1,0 +1,722 @@
+{
+	"info": {
+		"_postman_id": "b4822765-d9c4-4371-9b3f-0b8e5eee09fa",
+		"name": "ØNDER",
+		"description": "Endpoints for ØNDER system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hardware",
+			"item": [
+				{
+					"name": "Check internet connection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consumer",
+			"item": [
+				{
+					"name": "Settings",
+					"item": [
+						{
+							"name": "Get settings",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "727c594b-8af6-4e80-8c31-820ca4d96203",
+										"type": "text/javascript",
+										"exec": [
+											"var schema = {",
+											"    \"required\": [",
+											"        \"timeout\",",
+											"        \"meterConfiguration\",",
+											"    ],",
+											"    \"properties\": {",
+											"        \"timeout\": {",
+											"            \"type\": \"integer\",",
+											"            \"minimum\": 0,",
+											"        },",
+											"    }",
+											"};",
+											"",
+											"pm.test(\"Request schema is valid\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/settings/{{ACCOUNT}}",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"settings",
+										"{{ACCOUNT}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get settings",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/settings",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"settings"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Origin, X-Requested-With, Content-Type, Accept",
+											"name": "Access-Control-Allow-Headers",
+											"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*",
+											"name": "Access-Control-Allow-Origin",
+											"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive",
+											"name": "Connection",
+											"description": "Options that are desired for the connection"
+										},
+										{
+											"key": "Content-Length",
+											"value": "129",
+											"name": "Content-Length",
+											"description": "The length of the response body in octets (8-bit bytes)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8",
+											"name": "Content-Type",
+											"description": "The mime type of this content"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 21 Aug 2018 11:51:40 GMT",
+											"name": "Date",
+											"description": "The date and time that the message was sent"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"81-/G/oGYtoPAIG2DCJ5wsXFpX0IYs\"",
+											"name": "ETag",
+											"description": "An identifier for a specific version of a resource, often a message digest"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express",
+											"name": "X-Powered-By",
+											"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+										}
+									],
+									"cookie": [],
+									"body": "{\n\t\"name\": \"Ivan Ivanov\",\n\t\"email\": \"example@gmail.com\",\n\t\"phone\": \"+79991231101\",\n\t\"address\": \"Maharaeva st, 53 2\",\n\t\"timezone\": \"GMT+3:00\",\n\t\"language\": \"en\",\n\t\"send_statistics\": true,\n\t\"upstream_id\": \"0x13255bfbe8b951.devices.onder.tech\",\n\t\"sell_price\": \"10,12\",\n\t\"borrow_energy\": true,\n}"
+								}
+							]
+						},
+						{
+							"name": "Save settings",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Configuration",
+					"item": [
+						{
+							"name": "Get configuration",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/configurations",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"configurations"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "DeviceInfo",
+					"item": [
+						{
+							"name": "Get device info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/device/{{ACCOUNT}}",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"device",
+										"{{ACCOUNT}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get device info",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/device/{{METER_KEY}}",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"device",
+												"{{METER_KEY}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t\"id\": \"1234567890-009\",\n\t\"precision\": \"E2.0\",\n\t\"model\": \"CRT-6786\",\n\t\"manufacturer\": \"CHINA Energo Models LTD\",\n\t\"administator_phone\": \"+79991230001\",\n}"
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "Get measurements",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/measurements/{{ACCOUNT}}/{{$timestamp}}",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"measurements",
+										"{{ACCOUNT}}",
+										"{{$timestamp}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get measurements",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/measurements/{{METER_KEY}}/{{$timestamp}}",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"measurements",
+												"{{METER_KEY}}",
+												"{{$timestamp}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Origin, X-Requested-With, Content-Type, Accept",
+											"name": "Access-Control-Allow-Headers",
+											"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*",
+											"name": "Access-Control-Allow-Origin",
+											"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive",
+											"name": "Connection",
+											"description": "Options that are desired for the connection"
+										},
+										{
+											"key": "Content-Length",
+											"value": "66759",
+											"name": "Content-Length",
+											"description": "The length of the response body in octets (8-bit bytes)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8",
+											"name": "Content-Type",
+											"description": "The mime type of this content"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 21 Aug 2018 11:07:21 GMT",
+											"name": "Date",
+											"description": "The date and time that the message was sent"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"104c7-MGl5+5hXtELtqbtpaExHwK+UnNs\"",
+											"name": "ETag",
+											"description": "An identifier for a specific version of a resource, often a message digest"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express",
+											"name": "X-Powered-By",
+											"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+										}
+									],
+									"cookie": [],
+									"body": "[\n\t{\n\t\t\"value\": \"7.931421\",\n\t\t\"delta\": \"0.00660952\",\n\t\t\"datetime\": 1534834990506\n\t},\n\t{\n\t\t\"value\": \"8.75821\",\n\t\t\"delta\": \"0.00729851\",\n\t\t\"datetime\": 1534834993510\n\t}\n]"
+								}
+							]
+						},
+						{
+							"name": "Get downstream trades",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/downstream_trades/{{ACCOUNT}}/{{$timestamp}}",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"downstream_trades",
+										"{{ACCOUNT}}",
+										"{{$timestamp}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get downstream trades",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/downstream_trades/{{METER_KEY}}/{{$timestamp}}",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"downstream_trades",
+												"{{METER_KEY}}",
+												"{{$timestamp}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t[\n\t\t\"id\": 1,\n\t\t\"name\": \"Кабинет Семёна\",\n\t\t\"energy\": 159,\n\t\t\"money\": 6,\n\t\t\"owes\": 24\n\t],\n\t[\n\t\t\"id\": 2,\n\t\t\"name\": \"Свет на 3 этаже\",\n\t\t\"energy\": 159,\n\t\t\"money\": 3,\n\t\t\"owes\": 37,\n\t],\n}"
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Balance",
+					"item": [
+						{
+							"name": "Get balance",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/balance/{{ACCOUNT}}",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"balance",
+										"{{ACCOUNT}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get balance",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/balance/{{METER_KEY}}",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"balance",
+												"{{METER_KEY}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t\"balance\": 95.8,\n\t\"on_channel\": 0.19,\n\t\"owe\": 19\n}"
+								}
+							]
+						},
+						{
+							"name": "Deposit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/deposit/{{ACCOUNT}}",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"deposit",
+										"{{ACCOUNT}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Deposit(error)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "value",
+													"value": "60.4",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/deposit/{{ACCOUNT}}",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"deposit",
+												"{{ACCOUNT}}"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t\"message\": \"Error message\"\n}"
+								},
+								{
+									"name": "Deposit",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "value",
+													"value": "60.4",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/deposit/{{ACCOUNT}}",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"deposit",
+												"{{ACCOUNT}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t\"balance\" 123.4\n}"
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Errors",
+					"item": [
+						{
+							"name": "Get errors",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/errors",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"errors"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get errors",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/errors",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"errors"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t[\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"timestamp\": 1534918629005,\n\t\t\t\"power\": 10,\n\t\t\t\"coast\": 0.021,\n\t\t}\n\t]\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete errors",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/errors",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"errors"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete errors(error)",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/errors",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"errors"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t\"message\": \"Message text\"\n}"
+								},
+								{
+									"name": "Delete errors(success)",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "",
+													"value": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/errors",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"errors"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t\"success\": true\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete error",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{BASE_URL}}/errors/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"errors",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete error(error)",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/errors/1",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"errors",
+												"1"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": "{\n\t\"message\": \"Message text\"\n}"
+								},
+								{
+									"name": "Delete error(success)",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "{{BASE_URL}}/errors/1",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"errors",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Operator",
+			"item": []
+		}
+	]
+}

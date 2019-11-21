@@ -1,0 +1,6 @@
+package webproto;
+syntax = "proto3";
+
+message LightMeterConfiguration {
+  required string account = 1;
+}

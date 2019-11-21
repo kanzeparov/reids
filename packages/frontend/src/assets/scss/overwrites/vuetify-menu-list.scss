@@ -1,0 +1,21 @@
+@import "../base/variables";
+@import "../base/placeholders/typography";
+
+div.v-menu__content.menuable__content__active.theme--light {
+  box-shadow: $shadow-outer-m;
+
+  .v-list.theme--light {
+    padding: 0;
+  }
+
+  .v-list__tile.v-list__tile--link.theme--light {
+    padding: $offset-m;
+    height: auto;
+  }
+
+  .v-list__tile__title {
+    @extend %text-regular;
+    height: auto;
+    min-width: 80px;
+  }
+}

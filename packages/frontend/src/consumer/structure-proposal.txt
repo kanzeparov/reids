@@ -1,0 +1,51 @@
+- src
+  - core
+    - plugins
+    - mixins
+    - directives
+    ...
+
+  - components
+    ... common reusable components, such as button, list etc.
+
+  - modules
+    - App
+      - layouts
+        - TheHeader
+        - TheFooter
+        - TheSidebar
+      - components
+        - App
+          > reuse TheHeader
+          > reuse TheFooter
+      ...
+
+    - Errors
+      ... display errors
+
+    - Dashboard
+      - containers
+        - DashboardContainer
+          - router.ts
+          - container.vue (Vue component)
+            > retrieve and prepare data
+            > render components
+            > dispatch errors
+      - components
+        - DashboardInfo
+        - DashboardCharts
+        - DashboardTables
+      - services
+        - BuildChartOptionService.ts
+          >> take chart options as args
+          >> update chart options
+          >> serve chart options
+      - interfaces
+        - CustomChartOptionInterface.ts
+      - static-data
+        - chart-options.js
+        - chart-options
+          - base-chart-options.js
+          - column-chart-options.js
+          - line-chart-options.js
+      ...

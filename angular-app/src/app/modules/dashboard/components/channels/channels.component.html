@@ -1,0 +1,169 @@
+<div class="channels" *ngIf="(intermediateState$ | async).isOpen" @openCloseTrigger>
+  <div class="channels__close-btn" (click)="closeDrawer()">
+    <i class="material-icons">close</i>
+  </div>
+
+  <div class="channels__left-side-blank"></div>
+
+  <div *ngIf="meter" class="channels__content">
+    <div class="channels__meter-heading">
+      <div
+        class="channels__meter-gravatar"
+        [innerHtml]="meter.gravatar"
+      ></div>
+
+      <div class="channels__meter-name">
+        {{ meter.name }}
+      </div>
+    </div>
+
+    <offset-block class="channels__meter-id">
+      {{ meter.uuid }}
+    </offset-block>
+
+    <ng-container *ngIf="!channelsFetchState.hasFetched else channelsSection">
+      <div class="channels__fetch-wrap">
+        <div class="channels__fetch-error" *ngIf="channelsFetchState.hasErrors else fetchChannelsSpinner">
+          Could not fetch channels,
+          <a href="#" (click)="fetchChannels(meter.uuid); false">try again</a>
+        </div>
+
+        <ng-template #fetchChannelsSpinner>
+          <app-spinner ></app-spinner>
+        </ng-template>
+      </div>
+    </ng-container>
+
+    <ng-template #channelsSection>
+      <offset-block class="channels__onchain-balance-title">
+        Onchain balance
+      </offset-block>
+
+      <div class="channels__onchain-balance">
+        <offset-block>
+          <div>Ether</div>
+          <div>{{ ethOnchainBalance | toFixed:3 }}</div>
+        </offset-block>
+
+        <offset-block>
+          <div>REIDS18</div>
+          <div>{{ miptOnchainBalance | toFixed:3 }}</div>
+        </offset-block>
+      </div>
+
+      <table class="channels-table" cellspacing="0">
+        <thead>
+        <tr>
+          <th colspan="2">
+            <offset-block>
+              <div class="bold">Offchain balance</div>
+              <div class="thin">by channels</div>
+            </offset-block>
+          </th>
+
+          <th colspan="2">
+            <offset-block class="bold">REIDS18</offset-block>
+          </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="channels-table__offchain-balance">
+          <td colspan="2">
+            <offset-block>Sum</offset-block>
+          </td>
+          <td colspan="2">
+            <offset-block>{{ miptOffchainBalance | toFixed:3 }}</offset-block>
+          </td>
+        </tr>
+
+        <ng-container *ngFor="let item of channelsTableItems$ | async">
+          <tr class="channels-table__row" [class.quiet]="item.channel.meta.isSettled">
+            <td class="channels-table__gravatar-cell">
+              <div
+                class="channels-table__gravatar"
+                [innerHtml]="item.gravatar"
+              ></div>
+            </td>
+
+            <td>
+              <offset-block>
+                <div class="channels-table__name">
+                  {{ item.meter.name }}
+                </div>
+              </offset-block>
+            </td>
+
+            <td>
+              <offset-block class="channels-table__balance">
+                {{ item.channel.bill }}
+              </offset-block>
+            </td>
+
+            <td
+              class="channels-table__action"
+              [class.show-icon]="item.channel.meta.isSettled || item.channel.meta.action.isPerforming"
+            >
+              <div class="channels-table__action-icon-wrap">
+                <app-spinner *ngIf="item.channel.meta.action.isPerforming else actionIcon"></app-spinner>
+
+                <ng-template #actionIcon>
+                  <i
+                    class="material-icons"
+                    (click)="item.channel.meta.action.canPerform ? closeChannel(item) : false"
+                  >
+                    {{ item.channel.meta.action.icon }}
+                  </i>
+                </ng-template>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="channels-table__status-message-cell" *ngIf="item.channel.meta.message">
+            <td></td>
+            <td colspan="3">
+              <offset-block
+                y-offset="none"
+                class="channels-table__status-message"
+                [class.error]="item.channel.meta.isError"
+              >
+                {{ item.channel.meta.message }}
+
+                <app-countdown
+                  *ngIf="item.channel.meta.messageCountdown as countdownTimeLeft"
+                  [channelUuid]="item.channel.uuid"
+                  [timeLeft]="countdownTimeLeft"
+                  (finished)="onCountdownFinished($event)"
+                ></app-countdown>
+              </offset-block>
+            </td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </ng-template>
+
+    <div class="channels__tip">
+      <offset-block>
+        Closing a channel takes a while:
+        <br>
+        if you are producer — up to a minute,
+        <br>
+        if you are consumer — from a minute up to 3 days.
+      </offset-block>
+    </div>
+
+    <div
+      class="channels__notification"
+      *ngIf="channelsFetchState.hasFetched && hasSettledChannels$ | async"
+    >
+      <offset-block>
+        This page has been outdated.
+        <br>
+        <a href="#" (click)="fetchChannels(meter.uuid); false">Refresh the page</a>
+      </offset-block>
+    </div>
+  </div>
+
+  <div class="channels__wrap"></div>
+</div>

@@ -1,0 +1,36 @@
+@import "base/placeholders/text";
+
+.deposit {
+  height: 100%;
+}
+
+.deposit__account-titles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deposit__account-title {
+  @extend %text-bold;
+}
+
+.deposit__account-title,
+.deposit__account-currency--radio,
+.deposit__account-balance {
+  @extend %text-monospace;
+
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.deposit__amount-field {
+  width: 100%;
+}
+
+.deposit__amount-currency {
+  @extend %text-monospace;
+  color: rgba($color-black, $opacity-m);
+}
+
+.deposit__form-submit {
+  margin-top: $offset-m;
+}

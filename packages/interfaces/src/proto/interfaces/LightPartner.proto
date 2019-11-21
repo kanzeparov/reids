@@ -1,0 +1,12 @@
+package webproto;
+syntax = "proto3";
+
+message LightPartner {
+  required string account = 1;
+  required string owes = 2;
+  required string buysPower = 3;
+  required string buysTotalPrice = 4;
+  required string sellsPower = 5;
+  required string sellsTotalPrice = 6;
+  required uint32 lastUpdate = 7; //Must be uint64 but moment not support creating from Long type
+}

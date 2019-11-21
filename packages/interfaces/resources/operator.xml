@@ -1,0 +1,33 @@
+<operator endpoint='/socketoperator'>
+    <interfaces>
+        <interface name="IClient">
+            <property name="account" type="string" readonly="true"/>
+        </interface>
+    </interfaces>
+    <events>
+        <event name="Connect" customrecerver="true" reconnectevent="true">
+            <param name="client" type="IClient" default="this.client"/>
+        </event>
+        <event name="Disconnect" cansend="false" customrecerver="true">
+            <param name="client" type="IClient"/>
+        </event>
+        <event name="ProblemOccurred">
+            <param name="client" type="IClient" customrecerver="getOperatorTransportServerSocketClient"/>
+            <param name="errorType" type="ErrorType"/>
+            <param name="timestamp" type="Moment"/>
+        </event>
+        <event name="ProblemResolved">
+            <param name="client" type="IClient" customrecerver="getOperatorTransportServerSocketClient"/>
+            <param name="errorType" type="ErrorType"/>
+            <param name="timestamp" type="Moment"/>
+        </event>
+        <event name="Trade">
+            <param name="client" type="IClient" customrecerver="getOperatorTransportServerSocketClient"/>
+            <param name="sender" type="string"/>
+            <param name="receiver" type="string"/>
+            <param name="timestamp" type="Moment"/>
+            <param name="value" type="BigNumber"/>
+            <param name="price" type="BigNumber"/>
+        </event>
+    </events>
+</operator>

@@ -1,0 +1,38 @@
+@import "base/variables";
+@import "base/placeholders/text";
+
+$negative-color: #F85D1F;
+$positive-color: #8AB65A;
+
+.bill-diff {
+  overflow: hidden;
+}
+
+.bill-diff__value {
+  @extend %text-monospace;
+
+  opacity: 0;
+  color: transparent;
+
+  &.slide-negative {
+    color: $negative-color;
+    animation: slide-negative 3s linear;
+  }
+
+  &.slide-positive {
+    color: $positive-color;
+    animation: slide-positive 3s linear;
+  }
+}
+
+@keyframes slide-negative {
+  0%  { opacity: 0; transform: translateX(0); }
+  20% { opacity: 1; transform: translateX(10px); }
+  100% { opacity: 0; transform: translateX(50px); }
+}
+
+@keyframes slide-positive {
+  0%  { opacity: 0; transform: translateX(50px); }
+  20% { opacity: 1; transform: translateX(40px); }
+  100% { opacity: 0; transform: translateX(0); }
+}

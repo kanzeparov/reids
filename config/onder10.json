@@ -1,0 +1,49 @@
+{
+  "cellName": "Agent10",
+  "debug": "*",
+  "quantum": "PT5S",
+  "defaultPrice": "1000000000",
+  "upstreamAccount": "0x0",
+  "ethereumUrl": "https://rinkeby.infura.io/v3/fedce6444d5648d68d219657b539bfd1",
+  "isSeller": true,
+  "resolver": {
+    "kind": "Bonjour"
+  },
+  "databaseUrl": "sqlite:///tmp/seller-virtual-LoadBank2.sqlite3",
+  "databaseConfig": {
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "onder10",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "packages/metering-kit-node/dist/typeOrmDatabase/models/**/*.js"
+    ]
+  },
+  "webInterfacePort": 8890,
+  "webInterfaceHost": "localhost",
+  "wallets": [
+    {
+      "account": "0x1ABE470DdB6609Ba1f4E2e5C54115A359a8dd64a",
+      "mnemonic": "engage friend two claw slide speak ship clerk street power original actress"
+    }
+  ],
+  "meters": [
+    {
+      "kind": "mqtt",
+      "account": "0x1ABE470DdB6609Ba1f4E2e5C54115A359a8dd64a",
+      "ideaId": "Agent10",
+      "host": "mosquitto.onder.tech",
+      "port": 80,
+      "username": "jellyfish",
+	    "password": "1q2w3e4r"
+    }
+  ],
+  "dsmUrl": "ws://dsm1.onder.tech:8080",
+  "tokenContract": "0xD4a2AcE348c122EdCA6e0e11AD1c6e21EeE36C5C",
+  "tradeHost": "192.168.100.100",
+  "tradePort": 9010
+}

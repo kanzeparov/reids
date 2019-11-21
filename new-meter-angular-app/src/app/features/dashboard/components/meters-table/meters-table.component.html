@@ -1,0 +1,30 @@
+<table class="meters-table">
+  <thead>
+    <tr>
+      <th class="text-left">
+        Meters
+      </th>
+      <th class="text-right">REIDS18</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let channel of channels$ | async; trackBy: trackChannel">
+      <td class="text-left">
+        <div class="meters-table__account">
+          <div class="meters-table__gravatar" [innerHtml]="getGravatar$(channel.meterUuid) | async"></div>
+          <div>{{ channel.meterUuid | shortUuid }}</div>
+        </div>
+      </td>
+
+      <td class="text-right">{{ channel.bill | toCiPrefix:1 }}</td>
+
+      <td class="meters-table__diff">
+        <dashboard-bill-diff
+          [diff]="getChannelBillDiff(channel.uuid)"
+        ></dashboard-bill-diff>
+      </td>
+    </tr>
+  </tbody>
+</table>

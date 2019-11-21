@@ -1,0 +1,3 @@
+- replace yarn executable with my own for hooks
+- restrict access to node_modules instead of renaming
+- leave readonly symlink after renaming

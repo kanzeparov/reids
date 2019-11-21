@@ -1,0 +1,21 @@
+<errors>
+  <error name="BuyChannelNotExist">
+    <parameter name="date" type="moment.Moment"/>
+    <parameter name="account" type="string"/>
+    <parameter name="upstreamKey" type="string"/>
+  </error>
+  <error name="BuyNotEnoughMoney">
+    <parameter name="date" type="moment.Moment"/>
+    <parameter name="account" type="string"/>
+  </error>
+  <error name="Check">
+    <parameter name="expectedMoney" type="BigNumber"/>
+    <parameter name="givenMoney" type="BigNumber"/>
+    <parameter name="date" type="moment.Moment"/>
+    <parameter name="account" type="string"/>
+  </error>
+  <error name="InternalError"/>
+  <error name="RoomDontExist">
+    <parameter name="name" type="string"/>
+  </error>
+</errors>

@@ -1,0 +1,10 @@
+package webproto;
+syntax = "proto3";
+
+import "RoomType.proto";
+
+message RoomInfo {
+  required string roomID = 1;
+  required RoomType roomType = 2;
+  required string roomPeriod = 3;
+}

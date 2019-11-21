@@ -1,0 +1,42 @@
+$font-path: '/static/fonts/ubuntu-mono';
+
+@font-face {
+  font-family: 'Ubuntu Mono';
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'),
+      url('#{$font-path}/UbuntuMono-Regular.woff2') format('woff2'),
+      url('#{$font-path}/UbuntuMono-Regular.woff') format('woff'),
+      url('#{$font-path}/UbuntuMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono';
+  src: local('Ubuntu Mono Bold Italic'), local('UbuntuMono-BoldItalic'),
+      url('#{$font-path}/UbuntuMono-BoldItalic.woff2') format('woff2'),
+      url('#{$font-path}/UbuntuMono-BoldItalic.woff') format('woff'),
+      url('#{$font-path}/UbuntuMono-BoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono';
+  src: local('Ubuntu Mono Italic'), local('UbuntuMono-Italic'),
+      url('#{$font-path}/UbuntuMono-Italic.woff2') format('woff2'),
+      url('#{$font-path}/UbuntuMono-Italic.woff') format('woff'),
+      url('#{$font-path}/UbuntuMono-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono';
+  src: local('Ubuntu Mono Bold'), local('UbuntuMono-Bold'),
+      url('#{$font-path}/UbuntuMono-Bold.woff2') format('woff2'),
+      url('#{$font-path}/UbuntuMono-Bold.woff') format('woff'),
+      url('#{$font-path}/UbuntuMono-Bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+

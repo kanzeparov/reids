@@ -1,0 +1,10 @@
+package webproto;
+syntax = "proto3";
+
+//interfaces
+import "rooms/Rooms.proto";
+import "events/Events.proto";
+
+message ErrorResponse {
+    required string error = 1;
+}

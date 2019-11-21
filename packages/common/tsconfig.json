@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "outDir": "./lib",
+    "baseUrl": "./src",
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

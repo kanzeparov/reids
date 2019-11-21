@@ -1,0 +1,13 @@
+<header>
+  <div class="header__content">
+    <div class="header__back-link" *ngIf="isRouteResolved && !isHomePage">
+      <i routerLink="/" class="material-icons">arrow_back</i>
+    </div>
+
+    <offset-block class="header__title-block" x-offset="none">
+      <div class="header__title">{{ title }}</div>
+    </offset-block>
+  </div>
+
+  <div class="header__bottom-line"></div>
+</header>

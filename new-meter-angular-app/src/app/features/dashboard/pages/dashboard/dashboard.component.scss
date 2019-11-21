@@ -1,0 +1,17 @@
+@import "base/variables";
+@import "base/placeholders/text";
+
+.dashboard__buttons {
+  margin-top: $offset-s;
+  display: flex;
+  flex-wrap: wrap;
+
+  outline-button:first-child {
+    margin-right: $offset-m;
+  }
+}
+
+.dashboard__offchain-balance {
+  display: block;
+  margin-top: $offset-xl - $offset-s;
+}

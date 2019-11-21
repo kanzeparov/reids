@@ -1,0 +1,35 @@
+<div class="mipt-channels-info">
+  <offset-block class="mipt-channels-info__chain-type" x-offset="none" y-offset="medium">
+    <div class="mipt-channels-info__onchain">
+      <div class="mipt-channels-info__chain-type-title">On-chain</div>
+      <div class="mipt-channels-info__chain-type-balance">{{ balance.onchain.mipt | toFixed:3}}</div>
+      <div class="mipt-channels-info__chain-type-tip">Can be withdrawn immediately</div>
+      <div class="mipt-channels-info__chain-type-toggle"></div>
+    </div>
+  </offset-block>
+
+  <offset-block class="mipt-channels-info__chain-type" x-offset="none" y-offset="medium">
+    <div class="mipt-channels-info__offchain">
+      <div class="mipt-channels-info__chain-type-title">Off-chain</div>
+      <div class="mipt-channels-info__chain-type-balance">{{ balance.offchain.mipt | toFixed:3 }}</div>
+      <div class="mipt-channels-info__chain-type-tip">To withdraw, close channels</div>
+      <div class="mipt-channels-info__chain-type-toggle">
+        <i class="material-icons" (click)="toggleChannelsList()">
+          {{ isChannelsListShown ? 'expand_more' : 'chevron_right' }}
+        </i>
+      </div>
+    </div>
+  </offset-block>
+
+  <ng-container *ngIf="isChannelsListShown else channelsListTip">
+    <withdraw-mipt-channels-list></withdraw-mipt-channels-list>
+  </ng-container>
+
+  <ng-template #channelsListTip>
+    <offset-block class="mipt-channels-info__channels-list-tip" x-offset="none" y-offset="medium">
+      Part of money is locked on channels.
+      To withdraw it you need to close channels manually.
+      This may take some minutes, hours or even days.
+    </offset-block>
+  </ng-template>
+</div>

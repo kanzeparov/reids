@@ -1,0 +1,66 @@
+@import "../variables";
+
+$text-font-size: 14px;
+$text-line-height: 20px;
+%text-regular {
+  font-family: $font-family-default;
+  font-size: $text-font-size;
+  line-height: $text-line-height;
+}
+%text-upcase {
+  @extend %text-regular;
+  text-transform: uppercase;
+}
+%text-bold {
+  @extend %text-regular;
+  font-weight: 600;
+}
+
+$text-large-font-size: 16px;
+$text-large-line-height: 24px;
+%text-regular-large {
+  font-family: $font-family-default;
+  font-size: $text-large-font-size;
+  line-height: $text-large-line-height;
+}
+
+$text-monospace-font-size: 16px;
+%text-monospace {
+  font-family: $font-family-monospace;
+  font-size: $text-monospace-font-size;
+  line-height: $text-line-height;
+}
+
+$text-monospace-large-font-size: 18px;
+%text-monospace-large {
+  font-family: $font-family-monospace;
+  font-size: $text-monospace-large-font-size;
+  line-height: $text-large-line-height;
+}
+
+$caption-font-size: 12px;
+$caption-line-height: 12px;
+%text-caption {
+  font-family: $font-family-default;
+  font-size: $caption-font-size;
+  line-height: $caption-line-height;
+}
+
+$h1-font-size: 32px;
+$h1-line-height: 36px;
+%h1 {
+  font-family: $font-family-monospace;
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+  font-weight: 600;
+}
+
+$headline-font-size: 20px;
+$headline-line-height: 20px;
+%headline {
+  font-family: $font-family-default;
+  font-size: $headline-font-size;
+  line-height: $headline-line-height;
+  font-weight: 600;
+  text-transform: uppercase;
+}

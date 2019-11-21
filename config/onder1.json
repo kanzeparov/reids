@@ -1,0 +1,49 @@
+{
+  "cellName": "Agent1",
+  "debug": "*",
+  "quantum": "PT5S",
+  "defaultPrice": "1000000000",
+  "upstreamAccount": "0x0",
+  "ethereumUrl": "https://rinkeby.infura.io/v3/fedce6444d5648d68d219657b539bfd1",
+  "isSeller": true,
+  "resolver": {
+    "kind": "Bonjour"
+  },
+  "databaseUrl": "sqlite:///tmp/seller-virtual-DieselGenset1.sqlite3",
+  "databaseConfig": {
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "onder1",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "packages/metering-kit-node/dist/typeOrmDatabase/models/**/*.js"
+    ]
+  },
+  "webInterfacePort": 8881,
+  "webInterfaceHost": "localhost",
+  "wallets": [
+    {
+      "account": "0x512B41D07C70087A1BaAC4d1A49D55B051B05f4a",
+      "mnemonic": "mushroom hint basket yellow auto arrow tiger sausage blush loud recall zone"
+    }
+  ],
+  "meters": [
+    {
+      "kind": "mqtt",
+        "account": "0x512B41D07C70087A1BaAC4d1A49D55B051B05f4a",
+        "ideaId": "Agent1",
+        "host": "mosquitto.onder.tech",
+        "port": 8883,
+        "username": "test",
+        "password": "123456"
+    }
+  ],
+  "dsmUrl": "ws://dsm1.onder.tech:8080",
+  "tokenContract": "0xD4a2AcE348c122EdCA6e0e11AD1c6e21EeE36C5C",
+  "tradeHost": "192.168.100.100",
+  "tradePort": 9001
+}

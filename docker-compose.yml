@@ -1,0 +1,70 @@
+version: '3'
+
+volumes:
+  shared_node_modules:
+    driver: local
+  frontend_node_modules:
+    driver: local
+  backend_node_modules:
+    driver: local
+  sqlite_seller_data:
+    driver: local
+  sqlite_buyer_data:
+    driver: local
+
+services:
+  seller:
+    build:
+      context: .
+      dockerfile: Dockerfile-webserver
+    image: onder_webserver:latest
+    volumes:
+      - ./packages/metering-kit-node:/app/packages/metering-kit-node:cached
+      - backend_node_modules:/app/node_modules
+      - 'sqlite_seller_data:${DB_PATH}'
+      - shared_node_modules:/app/node_modules
+    ports:
+      - '8888:${SELLER_WEB_INTERFACE_PORT}'
+    entrypoint: sh /app/local-entrypoint.sh
+#    command: node ./dist/bin/main.js --config /etc/config.json
+    command: ts-node-dev ./src/bin/main.ts --config /etc/config.json
+    env_file:
+      - .env
+    restart: always
+    environment:
+      CONFIG_TPL_PATH: /app/config-seller.json.tpl
+#    logging:
+#      driver: none
+
+#  buyer:
+#    image: onder_webserver:latest
+#    volumes:
+#      - 'sqlite_buyer_data:${DB_PATH}'
+#      - shared_node_modules:/app/node_modules
+#    entrypoint: sh /app/local-entrypoint.sh
+#    command: node ./dist/bin/main.js --config /etc/config.json
+#    env_file:
+#      - .env
+#    environment:
+#      CONFIG_TPL_PATH: /app/config-buyer.json.tpl
+#    logging:
+#      driver: none
+#    depends_on:
+#      - seller
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile-frontend
+    volumes:
+      - ./packages/frontend:/app/packages/frontend:cached
+      - shared_node_modules:/app/node_modules
+      - frontend_node_modules:/app/packages/frontend/node_modules
+    ports:
+      - '${PORT}:${PORT}'
+    command: yarn run dev-consumer
+    env_file:
+      - .env
+    depends_on:
+      - seller
+#      - buyer

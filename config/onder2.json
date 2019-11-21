@@ -1,0 +1,49 @@
+{
+  "cellName": "Agent2",
+  "debug": "*",
+  "quantum": "PT5S",
+  "defaultPrice": "1000000000",
+  "upstreamAccount": "0x0",
+  "ethereumUrl": "https://rinkeby.infura.io/v3/fedce6444d5648d68d219657b539bfd1",
+  "isSeller": true,
+  "resolver": {
+    "kind": "Bonjour"
+  },
+  "databaseUrl": "sqlite:///tmp/seller-virtual-DieselGenset2.sqlite3",
+  "databaseConfig": {
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "onder2",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "packages/metering-kit-node/dist/typeOrmDatabase/models/**/*.js"
+    ]
+  },
+  "webInterfacePort": 8882,
+  "webInterfaceHost": "localhost",
+  "wallets": [
+    {
+      "account": "0xa7a16fd0664bf75C63Ae4556af7A5e58bFb49194",
+      "mnemonic": "cloud milk sunset surge survey person elbow milk test finish appear basket"
+    }
+  ],
+  "meters": [
+    {
+      "kind": "mqtt",
+      "account": "0xa7a16fd0664bf75C63Ae4556af7A5e58bFb49194",
+      "ideaId": "Agent2",
+      "host": "mosquitto.onder.tech",
+      "port": 8883,
+      "username": "jellyfish",
+	    "password": "1q2w3e4r"
+    }
+  ],
+  "dsmUrl": "ws://dsm1.onder.tech:8080",
+  "tokenContract": "0xD4a2AcE348c122EdCA6e0e11AD1c6e21EeE36C5C",
+  "tradeHost": "192.168.100.100",
+  "tradePort": 9002
+}

@@ -1,0 +1,33 @@
+@import "base/variables";
+@import "base/placeholders/text";
+
+.transfer-success {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  height: 100%;
+}
+
+.transfer-success__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $offset-xxl;
+}
+
+.transfer-success__icon {
+  i {
+    line-height: 64px;
+    font-size: 64px;
+  }
+}
+
+.transfer-success__message,
+.transfer-success__etherscan-link {
+  @extend %text-monospace;
+}
+
+.transfer-success__message {
+  margin-top: $offset-l;
+  margin-bottom: $offset-l;
+}

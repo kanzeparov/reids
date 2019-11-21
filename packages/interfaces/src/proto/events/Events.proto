@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "ConfigurationEvent.proto";
+import "DeleteErrorEvent.proto";
+import "ExitAllRoomsEvent.proto";
+import "ExitRoomEvent.proto";
+import "GetSettingsEvent.proto";
+import "JoinRoomEvent.proto";
+import "RoomsEvent.proto";
+import "SaveSettingsEvent.proto";

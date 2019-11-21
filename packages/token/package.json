@@ -1,0 +1,69 @@
+{
+  "name": "@onder/token",
+  "version": "0.0.1",
+  "description": "DER tokens tooling",
+  "license": "AGPL-3.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "build/"
+  ],
+  "config": {
+    "truffleTests": "dist/*.test.js",
+    "wrappedArtifacts": "build/contracts/@(TokenUnidirectional|StandardToken|Token).json"
+  },
+  "scripts": {
+    "build": "yarn support:wrap && tsc --project tsconfig.json && tsc --project tsconfig.migrations.json",
+    "lint": "yarn lint:solidity && yarn lint:typescript",
+    "lint:solidity": "solium -d contracts/",
+    "lint:typescript": "tslint --format stylish --project .",
+    "support:wrap": "truffle compile && wraptso $npm_package_config_wrappedArtifacts --output src/wrappers",
+    "support:build": "tsc --project support/tsconfig.json",
+    "test": "truffle test $npm_package_config_truffleTests",
+    "prepublish": "yarn support:wrap && yarn build",
+    "coverage": "solidity-coverage",
+    "mintToken": "DEBUG=* node dist/MintToken",
+    "deployToken": "DEBUG=* node dist/DeployToken"
+  },
+  "devDependencies": {
+    "@machinomy/types-ethereumjs-units": "^0.0.2",
+    "@machinomy/types-ethereumjs-util": "^0.0.12",
+    "@machinomy/types-truffle": "^0.0.6",
+    "@machinomy/types-truffle-compile": "^0.0.2",
+    "@machinomy/types-truffle-config": "^0.0.2",
+    "@machinomy/types-truffle-contract-sources": "^0.0.1",
+    "@machinomy/types-truffle-deployer": "^0.0.3",
+    "@machinomy/types-truffle-resolver": "^0.0.1",
+    "@machinomy/wraptso": "^0.0.16",
+    "@types/bignumber.js": "^4.0.2",
+    "@types/chai": "^4.1.3",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/mocha": "^5.2.0",
+    "@types/node": "^10.1.3",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.1",
+    "mocha": "^5.2.0",
+    "nyc": "^11.8.0",
+    "openzeppelin-solidity": "^1.12.0",
+    "solidity-coverage": "^0.5.4",
+    "solium": "^1.1.7",
+    "truffle": "^4.1.11",
+    "truffle-hdwallet-provider": "^0.0.5",
+    "tslint": "^5.10.0",
+    "tslint-config-standard": "^7.0.0"
+  },
+  "dependencies": {
+    "@machinomy/hdwallet-provider": "^1.1.0",
+    "@machinomy/types-web3": "^0.0.4",
+    "@types/fs-extra": "^5.0.4",
+    "bignumber.js": "4.1.0",
+    "dotenv": "^4.0.0",
+    "ethereumjs-units": "^0.2.0",
+    "ethereumjs-util": "^5.2.0",
+    "fs-extra": "^7.0.1",
+    "truffle-contract": "^3.0.6",
+    "web3": "^0.20.1"
+  }
+}

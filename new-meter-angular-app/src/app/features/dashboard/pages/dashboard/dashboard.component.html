@@ -1,0 +1,36 @@
+<div class="dashboard p-l">
+  <dashboard-balance
+    [onChain]="true"
+    [accountBalanceList$]="onchainBalanceList$"
+    class="dashboard__onchain-balance"
+  ></dashboard-balance>
+
+  <div class="dashboard__buttons">
+    <outline-button
+      [class.prevent-click]="!(transferAvailable$ | async)"
+      [disabled]="!(transferAvailable$ | async)"
+      routerLink="/deposit/form"
+    >
+      Deposit
+    </outline-button>
+
+    <outline-button
+      [class.prevent-click]="!(transferAvailable$ | async)"
+      [disabled]="!(transferAvailable$ | async)"
+      routerLink="/withdraw/form"
+    >
+      Withdraw
+    </outline-button>
+  </div>
+
+  <dashboard-balance
+    [onChain]="false"
+    [accountBalanceList$]="offchainBalanceList$"
+    class="dashboard__offchain-balance"
+  ></dashboard-balance>
+
+  <dashboard-meters-table
+    [channels$]="channels$"
+    [channelsBillDiff$]="channelsBillDiff$"
+  ></dashboard-meters-table>
+</div>

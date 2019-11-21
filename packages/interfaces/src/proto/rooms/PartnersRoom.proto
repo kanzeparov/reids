@@ -1,0 +1,14 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/RoomType.proto";
+import "../interfaces/LightPartner.proto";
+
+message PartnersRoomRequest {
+  required RoomType type = 1 [default = RoomType.Partners];
+}
+
+message PartnersRoomResponse {
+  required RoomType type = 1 [default = RoomType.Partners];
+  repeated LightPartner value = 2;
+}

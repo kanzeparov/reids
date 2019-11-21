@@ -1,0 +1,24 @@
+@import "../base/variables";
+
+.page-container {
+  padding: $offset-l $offset-l $offset-xl;
+}
+
+.bg-white {
+  background-color: $color-white;
+}
+.bg-gray {
+  background-color: $color-gray;
+}
+.bg-black {
+  background-color: $color-black;
+}
+.bg-accent {
+  background-color: $color-accent;
+}
+.bg-interactive {
+  background-color: $color-interactive;
+}
+.bg-caution {
+  background-color: $color-caution;
+}

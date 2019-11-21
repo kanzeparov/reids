@@ -1,0 +1,44 @@
+<div class="ui grid">
+  <div id="loading" class="row">
+    Loading...
+  </div>
+
+  <div class="row">
+    <div id='error-box' class="row ui negative message" style="display:none">
+      <i class="close icon"></i>
+      <div id="error-message" class="header"> </div>
+    </div>
+  </div>
+
+  <div id="control-panel" class="row" style="display:none">
+    <div class="field">
+      <button id="assign" class="ui button primary">Assign</button>
+      <button id="deassign" class="ui button primary" style="display:none">Deassign</button>
+    </div>
+  </div>
+
+  <div id="meter-panel"  class="row" style="display:none">
+    <div class="ui cards">
+      <div class="card" style="width: 380px">
+        <div class="content">
+          <div class="header">Balance</div>
+          <div id="meter-account" class="meta"></div>
+          <div id="meter-balance" class="meta"></div>
+          <div class="description">
+            <div class="ui form">
+              <div class="inline fields">
+                <div class="field">
+                  <input id='refill-value' type="text" value='1'>
+                </div>
+                <div class="field">
+                  <button id="refill-meter-balance" class="ui button primary" >Refill</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="transactions" class="ui list"></div>
+    </div>
+  </div>
+</div>

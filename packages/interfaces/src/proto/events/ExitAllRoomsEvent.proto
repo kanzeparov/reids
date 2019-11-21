@@ -1,0 +1,8 @@
+package webproto;
+syntax = "proto3";
+
+message ExitAllRoomsEventRequest {
+}
+
+message ExitAllRoomsEventResponse {
+}

@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  ng:
+    build: .
+    image: onder_ng:latest
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/app:cached
+    entrypoint: ./docker-entrypoint.sh
+    command: yarn start
+  fake-server:
+    build: ./fake-server
+    volumes:
+      - ./fake-server:/app
+    command: json-server db.json --routes routes.json --host 0.0.0.0

@@ -1,0 +1,31 @@
+@import "base/variables";
+@import "base/placeholders/text";
+
+$color-disabled: rgba($color-black, $opacity-l);
+.outline-button {
+  background-color: $color-white;
+  border-radius: $border-radius-m;
+  outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &[disabled] {
+    border: 1px solid $color-disabled;
+    color: $color-disabled;
+    background-color: $color-white !important;
+    pointer-events: none;
+  }
+}
+
+.outline-button__content {
+  @extend %text-regular;
+}
+
+.theme--interactive {
+  border: 1px solid $color-interactive;
+  color: $color-interactive;
+
+  &:hover {
+    background-color: rgba($color-interactive, .05);
+  }
+}

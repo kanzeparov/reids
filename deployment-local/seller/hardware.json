@@ -1,0 +1,16 @@
+{
+  "debug": "*",
+  "quantum": "PT5S",
+  "resolver": {
+    "kind": "Bonjour"
+  },
+  "databaseUrl": "sqlite://./seller-hardware.sqlite3",
+  "webInterfacePort": 8079,
+  "webInterfaceHost": "0.0.0.0",
+  "meters": [
+    {
+      "kind": "random",
+      "account": "0x44ac47379573F997098d02714D652abc28629c44"
+    }
+  ]
+}

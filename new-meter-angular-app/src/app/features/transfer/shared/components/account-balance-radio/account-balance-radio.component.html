@@ -1,0 +1,35 @@
+<div class="transfer__accounts">
+  <div class="transfer__account-titles">
+    <offset-block class="transfer__account-title" x-offset="none" y-offset="medium">
+      Currency
+    </offset-block>
+
+    <offset-block class="transfer__account-title" x-offset="none" y-offset="medium">
+      Balance
+    </offset-block>
+  </div>
+
+  <mat-radio-group
+    class="transfer__account-currencies"
+    [(ngModel)]="accountCurrency"
+    (ngModelChange)="onChange($event)"
+    [disabled]="isDisabled"
+    required
+  >
+    <offset-block
+      class="transfer__account-currency"
+      x-offset="none"
+      y-offset="medium"
+      justify="space-between"
+      *ngFor="let account of accounts"
+    >
+      <mat-radio-button class="transfer__account-currency--radio" [value]="account.currency">
+        {{ account.label }}
+      </mat-radio-button>
+
+      <div class="transfer__account-balance">
+        {{ account.balance | toFixed:3 }} {{ account.currency }}
+      </div>
+    </offset-block>
+  </mat-radio-group>
+</div>

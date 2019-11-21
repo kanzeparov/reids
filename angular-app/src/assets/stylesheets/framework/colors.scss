@@ -1,0 +1,49 @@
+@import "base/placeholders/text";
+
+.c-white {
+  color: $color-white;
+}
+.c-gray-light {
+  color: $color-gray-light;
+}
+.c-gray {
+  color: $color-gray;
+}
+.c-gray-dark {
+  color: $color-gray-dark;
+}
+.c-black {
+  color: $color-black;
+}
+.c-accent {
+  color: $color-accent;
+}
+.c-interactive {
+  color: $color-interactive;
+}
+.c-caution {
+  color: $color-caution;
+}
+
+.bg-white {
+  background-color: $color-white;
+}
+.bg-gray {
+  background-color: $color-gray;
+}
+.bg-gray-light {
+  background-color: $color-gray-light;
+}
+.bg-black {
+  background-color: $color-black;
+}
+.bg-accent {
+  background-color: $color-accent;
+}
+.bg-interactive {
+  background-color: $color-interactive;
+}
+.bg-caution {
+  background-color: $color-caution;
+}
+

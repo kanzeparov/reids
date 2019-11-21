@@ -1,0 +1,16 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/RoomType.proto";
+import "../interfaces/WebError.proto";
+
+message ErrorRoomRequest {
+  required RoomType type = 1 [default = RoomType.Error];
+}
+
+message ErrorRoomResponse {
+  required RoomType type = 1 [default = RoomType.Error];
+  repeated WebError add = 2;
+  repeated WebError remove = 3;
+  repeated WebError update = 4;
+}

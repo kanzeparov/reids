@@ -1,0 +1,27 @@
+{
+  "name": "@onder/interfaces",
+  "version": "0.0.1",
+  "description": "Frontend Part for Onder Nodes",
+  "repository": "https://github.com/onderPlatform/onder",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build": "yarn generate && tsc -p tsconfig.json",
+    "lint": "tslint -t stylish -p '.' -e './node_modules/**/*.ts'",
+    "generate": "yarn generate_meters && yarn generate_errors && yarn generate_operator && yarn protobuf",
+    "generate_meters": "xsltproc -o src/configuration/meter/index.ts resources/interfaces.xsl resources/meters.xml",
+    "generate_errors": "xsltproc -o src/errors/index.ts resources/errors.xsl resources/errors.xml",
+    "generate_web": "xsltproc -o src/web/index.ts resources/web.xsl resources/web.xml",
+    "generate_operator": "yarn generate_operator_iterfaces && yarn generate_operator_callback && yarn generate_operator_client",
+    "generate_operator_iterfaces": "xsltproc -o src/operator/interfaces.ts resources/operator_interfaces.xsl resources/operator.xml",
+    "generate_operator_callback": "xsltproc -o src/operator/IOperatorTransportCallback.ts resources/operator_callback.xsl resources/operator.xml",
+    "generate_operator_client": "xsltproc -o src/operator/IOperatorClient.ts resources/operator_client.xsl resources/operator.xml",
+    "protobuf": "pbjs -t static-module -w commonjs -o src/proto/messages.js src/proto/messages.proto && pbts -o src/proto/messages.d.ts src/proto/messages.js ",
+    "postbuild": "yarn copyproto",
+    "copyproto": "cp src/proto/*.js lib/proto/ && cp src/proto/*.d.ts lib/proto/"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "dependencies": {
+    "bignumber.js": "^4.1.0"
+  }
+}

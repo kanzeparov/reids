@@ -1,0 +1,34 @@
+@import "base/variables";
+
+.p-xs {
+  padding: $offset-xs;
+}
+.p-s {
+  padding: $offset-s;
+}
+.p-m {
+  padding: $offset-m;
+}
+.p-l {
+  padding: $offset-l;
+}
+.p-xl {
+  padding: $offset-xl;
+}
+
+.m-xs {
+  margin: $offset-xs;
+}
+.m-s {
+  margin: $offset-s;
+}
+.m-m {
+  margin: $offset-m;
+}
+.m-l {
+  margin: $offset-l;
+}
+.m-xl {
+  margin: $offset-xl;
+}
+

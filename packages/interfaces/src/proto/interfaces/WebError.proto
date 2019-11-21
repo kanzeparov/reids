@@ -1,0 +1,8 @@
+package webproto;
+syntax = "proto3";
+
+message WebError {
+  required string error = 1;
+  required uint32 from = 2; //Must be uint64 but moment not support creating from Long type
+  required uint32 to = 3; //Must be uint64 but moment not support creating from Long type
+}

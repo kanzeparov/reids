@@ -1,0 +1,73 @@
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <th class="title" colspan="2">Meter</th>
+      <th class="title" rowspan="2">Last Update</th>
+      <th class="title" rowspan="2">Price</th>
+      <th class="title" colspan="2">Bought in 24 h</th>
+      <th class="title" colspan="2">Sold in 24 h</th>
+      <!--<th class="title" rowspan="2">Device</th>-->
+    </tr>
+    <tr>
+      <th class="subtitle">Name</th>
+      <th class="subtitle">ID</th>
+      <th class="subtitle">kW·h</th>
+      <th class="subtitle text-right">MIPT tokens</th>
+      <th class="subtitle">kW·h</th>
+      <th class="subtitle text-right">MIPT tokens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items$ | async; trackBy: trackMeter" [class.nested]="!item.isSeller">
+      <td>
+        <div class="meters-table__account" (click)="channelDetails.open(item.uuid)">
+          <div class="meters-table__gravatar" [innerHtml]="item.gravatar"></div>
+          <div>{{ item.meter.name }}</div>
+        </div>
+      </td>
+
+      <td>
+        <ng-template #accountUuid>
+          <span class="meters-table__full-uuid">{{ item.uuid }}</span>
+          <span class="meters-table__short-uuid">{{ item.uuid | shortUuid }}</span>
+        </ng-template>
+
+        <a *ngIf="walletLinkEnabled" [href]="getMeterWalletUrl(item.uuid)" target="_blank">
+          <ng-container *ngTemplateOutlet="accountUuid"></ng-container>
+        </a>
+
+        <div *ngIf="!walletLinkEnabled">
+          <ng-container *ngTemplateOutlet="accountUuid"></ng-container>
+        </div>
+      </td>
+
+      <td [class.quiet]="item.meterReport.updateTimeIsQuiet" class="text-right">
+        {{ item.meterReport.updateTime }}
+      </td>
+
+      <td [class.quiet]="item.meterReport.priceIsQuiet" class="text-right">
+        {{ item.meterReport.price }}
+      </td>
+
+      <td [class.quiet]="item.meterReport.purchaseKwhIsQuiet" class="text-right">
+        {{ item.meterReport.purchaseKwh }}
+      </td>
+
+      <td [class.quiet]="item.meterReport.purchaseTokensIsQuiet" class="text-right">
+        {{ item.meterReport.purchaseTokens }}
+      </td>
+
+      <td [class.quiet]="item.meterReport.saleKwhIsQuiet" class="text-right">
+        {{ item.meterReport.saleKwh }}
+      </td>
+
+      <td [class.quiet]="item.meterReport.saleTokensIsQuiet" class="text-right">
+        {{ item.meterReport.saleTokens }}
+      </td>
+
+      <!--<td>-->
+        <!--{{ item.meter.comment }}-->
+      <!--</td>-->
+    </tr>
+  </tbody>
+</table>

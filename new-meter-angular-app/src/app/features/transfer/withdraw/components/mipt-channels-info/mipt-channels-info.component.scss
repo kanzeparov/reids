@@ -1,0 +1,80 @@
+@import "base/variables";
+@import "base/placeholders/text";
+
+:host {
+  overflow: hidden;
+}
+
+.mipt-channels-info {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  height: 100%;
+}
+
+.mipt-channels-info__chain-type {
+  display: block;
+  margin-bottom: 1px;
+  position: relative;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 100%;
+
+    background-color: rgba($color-black, $opacity-xl);
+  }
+}
+
+.mipt-channels-info__onchain,
+.mipt-channels-info__offchain {
+  @extend %text-monospace;
+
+  display: grid;
+  grid-template-areas:
+    'chain-type-title chain-type-balance chain-type-toggle'
+    'chain-type-tip chain-type-tip chain-type-tip';
+  grid-template-columns: 1fr auto auto;
+
+  width: 100%;
+}
+
+.mipt-channels-info__onchain {
+  .mipt-channels-info__chain-type-balance {
+    color: $color-interactive;
+  }
+}
+
+.mipt-channels-info__chain-type-title {
+  grid-area: chain-type-title;
+}
+
+.mipt-channels-info__chain-type-balance {
+  grid-area: chain-type-balance;
+}
+
+.mipt-channels-info__chain-type-tip {
+  grid-area: chain-type-tip;
+
+  color: rgba($color-black, $opacity-m);
+}
+
+.mipt-channels-info__chain-type-toggle {
+  grid-area: chain-type-toggle;
+
+  min-width: 24px;
+  min-height: 24px;
+  padding-left: $offset-m;
+  margin-top: -1px;
+
+  i {
+    color: $color-interactive;
+  }
+}
+
+.mipt-channels-info__channels-list-tip {
+  @extend %text-regular-large;
+}

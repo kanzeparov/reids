@@ -1,0 +1,10 @@
+package webproto;
+syntax = "proto3";
+
+message ExitRoomEventRequest {
+  required string roomID = 1;
+}
+
+message ExitRoomEventResponse {
+  
+}

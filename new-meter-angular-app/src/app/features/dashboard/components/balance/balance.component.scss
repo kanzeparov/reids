@@ -1,0 +1,42 @@
+@import "base/placeholders/text";
+
+.balance__title {
+  @extend %text-regular;
+  @extend %text-upcase;
+  @extend %text-bold;
+
+  letter-spacing: 0.01rem;
+}
+
+.balance__accounts {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.balance__account {
+  display: flex;
+  align-items: flex-end;
+
+  &:first-child {
+    margin-right: $offset-l;
+  }
+}
+
+.balance__account--value {
+  @extend %h1-mono;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.balance__account--unit {
+  @extend %text-regular;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding-bottom: 2px;
+  margin-left: 5px;
+}

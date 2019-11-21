@@ -1,0 +1,111 @@
+@import 'base/variables';
+
+.offset-block {
+  display: flex;
+}
+
+/* Align */
+
+.align--start {
+  align-items: flex-start;
+}
+
+.align--end {
+  align-items: flex-end;
+}
+
+.align--center {
+  align-items: center;
+}
+
+/* Justify */
+
+.justify--start {
+  justify-content: flex-start;
+}
+
+.justify--end {
+  justify-content: flex-end;
+}
+
+.justify--center {
+  justify-content: center;
+}
+
+.justify--space-between {
+  justify-content: space-between;
+}
+
+/* Direction */
+
+.direction--row {
+  flex-direction: row;
+}
+
+.direction--column {
+  flex-direction: column;
+}
+
+/* X axis offset */
+
+.x-offset--none {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.x-offset--x-small {
+  padding-left: $offset-xs;
+  padding-right: $offset-xs;
+}
+
+.x-offset--small {
+  padding-left: $offset-s;
+  padding-right: $offset-s;
+}
+
+.x-offset--medium {
+  padding-left: $offset-m;
+  padding-right: $offset-m;
+}
+
+.x-offset--large {
+  padding-left: $offset-l;
+  padding-right: $offset-l;
+}
+
+.x-offset--x-large {
+  padding-left: $offset-xl;
+  padding-right: $offset-xl;
+}
+
+/* Y axis offset */
+
+.y-offset--none {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.y-offset--x-small {
+  padding-top: $offset-xs;
+  padding-bottom: $offset-xs;
+}
+
+.y-offset--small {
+  padding-top: $offset-s;
+  padding-bottom: $offset-s;
+}
+
+.y-offset--medium {
+  padding-top: $offset-m;
+  padding-bottom: $offset-m;
+}
+
+.y-offset--large {
+  padding-top: $offset-l;
+  padding-bottom: $offset-l;
+}
+
+.y-offset--x-large {
+  padding-top: $offset-xl;
+  padding-bottom: $offset-xl;
+}

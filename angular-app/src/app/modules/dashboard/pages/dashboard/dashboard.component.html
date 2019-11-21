@@ -1,0 +1,25 @@
+<div class="dashboard p-xl">
+  <dashboard-channels></dashboard-channels>
+
+  <div class="dashboard__header">
+    <h1>MIPT</h1>
+    <a [href]="onderWebsiteUrl" target="_blank" class="dashboard__powered_by">ØNDER Monitoring</a>
+  </div>
+
+  <div class="dashboard__charts">
+    <dashboard-consumption-chart
+      [initialData]="consumptionChartData$"
+      [dataUpdates]="consumptionChartUpdates$"
+    ></dashboard-consumption-chart>
+    <dashboard-price-chart
+      [initialData]="priceChartData$"
+      [dataUpdates]="priceChartUpdates$"
+    ></dashboard-price-chart>
+  </div>
+
+  <div class="dashboard__tables">
+    <dashboard-meter-reports-table
+      [items]="meterReportsTableItems$"
+    ></dashboard-meter-reports-table>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="channels">
+  <table class="channels-table" cellspacing="0">
+    <tbody>
+    <ng-container *ngFor="let item of channelsTableItems$ | async">
+      <tr
+        class="channels-table__row"
+        [class.is-settled]="item.channel.meta.isSettled"
+        [class.is-performing-action]="item.channel.meta.action.isPerforming"
+      >
+        <td class="channels-table__gravatar-cell">
+          <div
+            class="channels-table__gravatar"
+            [innerHtml]="item.gravatar"
+          ></div>
+        </td>
+
+        <td>
+          <offset-block>
+            <div class="channels-table__name">
+              {{ item.channel.meterUuid | shortUuid }}
+            </div>
+          </offset-block>
+        </td>
+
+        <td>
+          <offset-block class="channels-table__balance">
+            {{ item.channel.bill }}
+          </offset-block>
+        </td>
+
+        <td class="channels-table__action">
+          <div class="channels-table__action-icon-wrap">
+            <app-spinner *ngIf="item.channel.meta.action.isPerforming else actionIcon"></app-spinner>
+
+            <ng-template #actionIcon>
+              <i
+                class="material-icons"
+                (click)="item.channel.meta.action.canPerform ? closeChannel(item) : false"
+              >
+                {{ item.channel.meta.action.icon }}
+              </i>
+            </ng-template>
+          </div>
+        </td>
+      </tr>
+
+      <tr class="channels-table__status-message-cell" *ngIf="item.channel.meta.message">
+        <td></td>
+        <td colspan="3">
+          <offset-block
+            y-offset="none"
+            class="channels-table__status-message"
+            [class.error]="item.channel.meta.isError"
+          >
+            {{ item.channel.meta.message }}&nbsp;
+
+            <app-countdown
+              *ngIf="item.channel.meta.messageCountdown as countdownTimeLeft"
+              [channelUuid]="item.channel.uuid"
+              [timeLeft]="countdownTimeLeft"
+              (finished)="onCountdownFinished($event)"
+            ></app-countdown>
+          </offset-block>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

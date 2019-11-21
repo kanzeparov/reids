@@ -1,0 +1,12 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/LightConfiguration.proto";
+
+message ConfigurationEventRequest {
+    
+}
+
+message ConfigurationEventResponse {
+    required LightConfiguration configuration = 1;
+}

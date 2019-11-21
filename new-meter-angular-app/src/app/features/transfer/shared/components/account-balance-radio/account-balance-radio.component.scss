@@ -1,0 +1,19 @@
+@import "base/placeholders/text";
+
+.transfer__account-titles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transfer__account-title {
+  @extend %text-bold;
+}
+
+.transfer__account-title,
+.transfer__account-currency--radio,
+.transfer__account-balance {
+  @extend %text-monospace;
+
+  font-size: 18px;
+  line-height: 24px;
+}

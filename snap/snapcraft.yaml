@@ -1,0 +1,115 @@
+name: onder-meter
+version: '0.1'
+summary: Onder meter
+architectures:
+  - armhf
+description: |
+  Onder-meter package
+
+grade: stable
+confinement: strict
+
+apps:
+  main:
+    command: bin/run-metering-kit-hardware.sh
+    restart-condition: always
+    daemon: simple
+    plugs:
+      - hardware-observe
+      - network-bind
+      - network-control
+      - network-manager
+      - network-observe
+      - network-setup-control
+      - network
+      - raw-usb
+
+parts:
+  hostapd:
+    plugin: dump
+    source: hostapd
+    filesets:
+      binaries:
+        - bin/hostapd
+        - bin/hostapd_cli
+    prime:
+      - $binaries
+  dnsmasq:
+    plugin: dump
+    source: dnsmasq
+    filesets:
+      binaries:
+        - bin/dnsmasq
+    prime:
+      - $binaries
+  onder-meter:
+    plugin: dump
+    source: .
+    override-build: |
+      echo "-- install prebuild packages"
+      yarn global add lerna@3.3.0 node-pre-gyp@0.11.0 tslint@5.11.0 typescript@3.0.1 webpack3@4.0.0
+      
+      echo "-- run lerna"
+      # lerna bootstrap -- --production --no-optional
+      lerna bootstrap
+      lerna run build
+      
+      echo "-- rebuild for target arch"
+      if [ "$SNAPCRAFT_ARCH_TRIPLET" = "arm-linux-gnueabihf" ]; then
+        export NODE_ARCH=armv7l
+        export CC=arm-linux-gnueabihf-gcc-5
+        export CXX=arm-linux-gnueabihf-g++-5
+        npm rebuild --arch=arm --target_arch=arm
+      else
+        export NODE_ARCH=x64
+      fi
+      
+      echo "-- install nodejs"
+      export NODE_VERSION=8.11.4
+      curl -fsSLO --compressed https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$NODE_ARCH.tar.xz
+      tar -xJf "node-v$NODE_VERSION-linux-$NODE_ARCH.tar.xz" -C ./ --strip-components=1 --no-same-owner
+      rm node-v$NODE_VERSION-linux-$NODE_ARCH.tar.xz
+      for i in "bin" "include" "lib" "share"; do
+        cp -Rp --parents $i $SNAPCRAFT_PART_INSTALL/
+      done
+
+      echo "-- remove sources"
+      find ./packages -maxdepth 2  -type d -name "src" -exec rm -rf {} +
+
+      chmod a+x symlinks.sh
+      echo "-- remove symlinks for packages node_modules"
+      find ./packages -type l -exec $(pwd)/symlinks.sh {} +
+      echo "-- remove symlinks for global node_modules"
+      find . -type l -exec $(pwd)/symlinks.sh {} +
+      
+      echo "-- copy global node_modules"
+      find . -type d -name puppeteer -exec rm -rf {} +
+      find . -type d -name karma-spec-reporter -exec rm -rf {} +
+      find . -type d -name prompt -exec rm -rf {} +
+      find . -maxdepth 2 -type d -name colors -exec rm -rf {} +
+      cp -Rp --parents node_modules $SNAPCRAFT_PART_INSTALL/
+
+      echo "-- copy default meters.yml"
+      cp -Rp --parents meters.yml $SNAPCRAFT_PART_INSTALL/
+      
+      echo "-- copy common"
+      cp -Rp --parents packages/ $SNAPCRAFT_PART_INSTALL/
+      
+      echo "-- copy start script"
+      cp -p packages/metering-kit-hardware/run-metering-kit-hardware.sh $SNAPCRAFT_PART_INSTALL/bin/run-metering-kit-hardware.sh
+      chmod a+x $SNAPCRAFT_PART_INSTALL/bin/*.sh
+    filesets:
+      nodejs:
+        - bin/
+        - include/
+        - lib/
+        - share/
+      nodemodules:
+        - node_modules/
+        - meters.yml
+      packages:
+        - packages/
+    prime:
+      - $nodejs
+      - $nodemodules
+      - $packages

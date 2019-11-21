@@ -1,0 +1,46 @@
+{
+  "name": "@onder/monorepo",
+  "description": "Onder Monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build --stream",
+    "test": "lerna run test --stream",
+    "lint": "lerna run lint --stream"
+  },
+  "dependencies": {
+    "@elderapo/typed-event-emitter": "^1.4.0",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "decko": "^1.2.0",
+    "express": "^4.16.3",
+    "moment": "^2.22.2",
+    "moment-range": "^4.0.1",
+    "protobufjs": "^6.8.8",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/chai-http": "^3.0.5",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/dotenv": "^4.0.3",
+    "@types/express": "^4.16.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.x",
+    "@types/node-schedule": "^1.2.2",
+    "@types/jest": "^23.3.9",
+    "chai-http": "^4.0.0",
+    "ganache-cli": "^6.2.x",
+    "jest": "^23.6.x",
+    "lerna": "^2.11.0",
+    "mocha": "^5.2.0",
+    "ts-node-dev": "^1.0.0-pre.30",
+    "tslint": "^5.11.x",
+    "tslint-config-standard": "^8.0.x",
+    "typescript": "^3.0.x"
+  }
+}

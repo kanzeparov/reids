@@ -1,0 +1,22 @@
+@import "~@assets/scss/base/placeholders/typography";
+@import "~@assets/scss/base/variables";
+
+h1 {
+  @extend %h1;
+}
+
+.text {
+  @extend %text-regular;
+}
+.bold {
+  @extend %text-bold;
+}
+.upcase {
+  @extend %text-upcase;
+}
+
+a[href] {
+  @extend %text-regular;
+  color: $color-interactive;
+  text-decoration: none;
+}

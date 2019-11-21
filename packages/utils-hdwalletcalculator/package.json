@@ -1,0 +1,19 @@
+{
+  "name": "@onder/utils-hdwalletcalculator",
+  "version": "0.0.1",
+  "description": "Metering Kit for Onder Platform, Hardware Meter",
+  "repository": "https://github.com/onderPlatform/onder",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build": "rm -rf ./dist/ && tsc --project tsconfig.json",
+    "lint": "tslint --format stylish --project . --exclude './node_modules/**/*.ts'"
+  },
+  "dependencies": {
+    "@machinomy/logger": "^0.2.3",
+    "@onder/common": "^0.0.1",
+    "@onder/interfaces": "^0.0.1"
+  },
+  "devDependencies": {
+    "ts-node": "^7.0.1"
+  }
+}

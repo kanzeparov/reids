@@ -1,0 +1,14 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/RoomType.proto";
+import "../interfaces/LightPayment.proto";
+
+message PartnerRoomRequest {
+  required RoomType type = 1 [default = RoomType.Partner];
+}
+
+message PartnerRoomResponse {
+  required RoomType type = 1 [default = RoomType.Partner];
+  repeated LightPayment value = 2;
+}

@@ -1,0 +1,12 @@
+package webproto;
+syntax = "proto3";
+
+import "../interfaces/RoomInfo.proto";
+
+message RoomsEventRequest {
+    
+}
+
+message RoomsEventResponse {
+    repeated RoomInfo rooms = 1;
+}

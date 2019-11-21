@@ -1,0 +1,16 @@
+@import "./base/placeholders/typography";
+
+@import "./framework/layout";
+@import "./framework/typography";
+@import "./framework/colors";
+
+@import "./overwrites/vuetify-menu-list";
+@import "./overwrites/vuetify-application";
+
+body, html, * {
+  @extend %text-regular;
+}
+
+.application {
+  @extend %text-regular;
+}

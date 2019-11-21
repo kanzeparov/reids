@@ -1,0 +1,37 @@
+<meters>
+    <meter name="Zero" configname="zero"/>
+    <meter name="HTTPServer" configname="http-server">
+        <parameter name="password" type="string" optional="true"/>
+        <parameter name="faultValue" type="BigNumber"/>
+        <parameter name="port" type="number"/>
+    </meter>
+    <meter name="Random" configname="random">
+        <parameter name="password" type="string" optional="true"/>
+    </meter>
+    <meter name="File" configname="file">
+        <parameter name="password" type="string" optional="true"/>
+        <parameter name="column" type="string"/>
+        <parameter name="path" type="string"/>
+    </meter>
+    <meter name="Energomera" configname="energomera">
+        <parameter name="password" type="string" optional="true"/>
+        <parameter name="faultValue" type="BigNumber"/>
+        <parameter name="port" type="string"/>
+    </meter>
+    <meter name="EnergomeraAsync" configname="energomera-async">
+      <parameter name="password" type="string" optional="true"/>
+      <parameter name="faultValue" type="BigNumber"/>
+      <parameter name="port" type="string"/>
+    </meter>
+    <meter name="OnderAlpha" configname="onder-alpha">
+      <parameter name="account" type="string" />
+      <parameter name="port" type="string" />
+      <parameter name="index" type="number" />
+    </meter>
+    <meter name="MQTT" configname="mqtt">
+      <parameter name="host" type="string" />
+      <parameter name="port" type="number" />
+      <parameter name="username" type="string" />
+      <parameter name="password" type="string" />
+    </meter>
+</meters>

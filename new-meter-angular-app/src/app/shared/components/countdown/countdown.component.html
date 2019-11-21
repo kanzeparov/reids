@@ -1,0 +1,40 @@
+<ng-container *ngIf="currentTemplateType === TEMPLATE_TYPES.WITH_DAYS_AND_HOURS">
+  {{ daysLeft }}d
+  <countdown
+    [config]="countdownConfig"
+    (finished)="onFinish()"
+    (notify)="onNotify($event)"
+  >
+    $!h!h
+  </countdown>
+</ng-container>
+
+<ng-container *ngIf="currentTemplateType === TEMPLATE_TYPES.WITH_HOURS_AND_MINUTES">
+  <countdown
+    [config]="countdownConfig"
+    (finished)="onFinish()"
+    (notify)="onNotify($event)"
+  >
+    $!h!h $!m!m
+  </countdown>
+</ng-container>
+
+<ng-container *ngIf="currentTemplateType === TEMPLATE_TYPES.WITH_MINUTES_AND_SECONDS">
+  <countdown
+    [config]="countdownConfig"
+    (finished)="onFinish()"
+    (notify)="onNotify($event)"
+  >
+    $!m!m $!s!s
+  </countdown>
+</ng-container>
+
+<ng-container *ngIf="currentTemplateType === TEMPLATE_TYPES.WITH_ONLY_SECONDS">
+  <countdown
+    [config]="countdownConfig"
+    (finished)="onFinish()"
+    (notify)="onNotify($event)"
+  >
+    $!s!s
+  </countdown>
+</ng-container>

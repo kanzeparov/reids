@@ -1,0 +1,25 @@
+<div class="transfer-success border-box p-l">
+  <div class="transfer-success__content">
+    <div class="transfer-success__icon">
+      <i class="material-icons">check</i>
+    </div>
+
+    <offset-block
+      class="transfer-success__message"
+      x-offset="none"
+      y-offset="medium"
+    >
+      Transaction is sent to blockchain,
+      <br>
+      balance will change in few minutes.
+    </offset-block>
+
+    <a class="transfer-success__etherscan-link" [href]="etherscanLink" target="_blank">
+      Verify on etherscan
+    </a>
+  </div>
+
+  <filled-button theme="accent" routerLink="/">
+    Back to dashboard
+  </filled-button>
+</div>
