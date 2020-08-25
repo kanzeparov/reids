@@ -30,7 +30,7 @@
     "bignumber.js": "^4.1.0",
     "bufferutil": "^4.0.0",
     "deepmerge": "^2.1.1",
-    "highcharts": "^6.2.0",
+    "highcharts": "^8.2.0",
     "highcharts-vue": "^1.0.4",
     "intl": "^1.2.5",
     "js-logger": "^1.4.1",
