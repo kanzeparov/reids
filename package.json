@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@elderapo/typed-event-emitter": "^1.4.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.3",
     "decko": "^1.2.0",
     "express": "^4.16.3",
